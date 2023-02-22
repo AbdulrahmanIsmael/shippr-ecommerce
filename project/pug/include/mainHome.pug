@@ -1,0 +1,120 @@
+main#main-content
+  section#showcase
+    #sc1.sc.show(data-sc="1")
+      .sc-content
+        .text
+          h2 New E-Commerce Store With Great Products
+          p With Amazing Sales
+        button.sc-btn Shop Now
+    #sc2.sc(data-sc="2")
+      .sc-content
+        .text
+          h2 New Collections
+          p New Offers Everyday Up To 50%
+        button.sc-btn Shop Now
+    #sc3.sc(data-sc="3")
+      .sc-content
+        .text
+          h2 New Amazing Prizes
+          p Great Discounts Everyday!
+        button.sc-btn Shop Now
+    |
+    |
+    .sc-nav
+      button.sc-nav-btn.active 1
+      button.sc-nav-btn 2
+      button.sc-nav-btn 3
+  section#most
+    nav#most-nav
+      ul
+        li.active New Arrival
+        li Most Rated
+        li Best Offers
+    .line
+    section#products
+      button#slideLeft #[i.fa-solid.fa-angle-left]
+      button#slideRight #[i.fa-solid.fa-angle-right]
+      #products-container
+  section#ads
+    #cover
+      h2 Mega Sale
+      p Up to 70% Off On All Products
+      button.ads-btn Shop Now
+  section#reviews
+    h2 Clients Reviews
+    p These are some of the reviews about the store's performance
+    #reviewers
+      .reviewer
+        .reviewer-personal-info
+          img(src="./images/review1.jpg", alt="reviewer 1")
+          h2 Ahmed Ibrahim
+          i.fa-sharp.fa-solid.fa-caret-right#review-row
+        .reviewer-review.closeReview
+          .stars
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star
+          p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit error saepe dignissimos commodi quidem.
+      .reviewer
+        .reviewer-personal-info
+          img(src="./images/review2.jpg", alt="reviewer 1")
+          h2 Aya Baraa
+          i.fa-sharp.fa-solid.fa-caret-right#review-row
+        .reviewer-review.closeReview
+          .stars
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star-half
+            i.fa-solid.fa-star
+          p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit error saepe dignissimos commodi quidem.
+      .reviewer
+        .reviewer-personal-info
+          img(src="./images/review3.jpg", alt="reviewer 1")
+          h2 Mia Micheal
+          i.fa-sharp.fa-solid.fa-caret-right#review-row
+        .reviewer-review.closeReview
+          .stars
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star.gold
+            i.fa-solid.fa-star
+            i.fa-solid.fa-star
+          p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit error saepe dignissimos commodi quidem.
+  section#adsTwo
+    #coverTwo
+      h2 Free Shipping Wordwide
+      button.ads-btn Shop Now
+  section#news
+    h2 Latest News
+    p Always updated for latest news about new arrival products and offers
+    .newsArticles
+      .newsArticle-one
+        .image
+          img(src="./images/news1.jpg", alt="article logo")
+          .date 23 Aug
+        h3 New Arrivals This Month!
+        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste voluptate voluptates porro incidunt.
+        a(href="./home.html") Shop Now #[i.fa-sharp.fa-solid.fa-caret-right]
+      .newsArticle-two
+        .image
+          img(src="./images/news2.jpg", alt="article logo")
+          .date 5 Sep
+        h3 Some Offers On Fire, Shop Now!
+        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste voluptate voluptates porro incidunt.
+        a(href="./home.html") Shop Now #[i.fa-sharp.fa-solid.fa-caret-right]
+      .newsArticle-two
+        .image
+          img(src="./images/news3.jpg", alt="article logo")
+          .date 1 Jan
+        h3 New Year With New Sales! 
+        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste voluptate voluptates porro incidunt.
+        a(href="./home.html") Shop Now #[i.fa-sharp.fa-solid.fa-caret-right]
+  section#contact
+    h2 Subscribe to our News
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    .email
+      input(type="email", name="email", id="email", placeholder="Enter Your Email")
+      input(type="submit", value="Subscribe")

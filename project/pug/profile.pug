@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="icon", type="image/png", href="./assests/icon.png")
+    include ./include/fontAwesome.pug
+    link(rel="stylesheet", href="./css/profile.css")
+    title Shippr | My Profile
+  body
+    include ./include/header.pug
+    include ./include/mainProfile.pug
+    include ./include/footer.pug
+    include ./include/profileLogOut.pug
+    include ./include/addressForm.pug
+    include ./include/updatePassword.pug
+    .overlay
+    script(type="module", src="./js/profile.js")
+    script(src="./js/header.js")

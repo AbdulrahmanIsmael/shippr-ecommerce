@@ -1,0 +1,24 @@
+#address-form
+      div
+        h2 Add New Address
+        i.fa-sharp.fa-solid.fa-circle-xmark#xmark-form
+      .line
+      form.address-form
+        .name
+          input(type="text", name="firstname", id='first-name', placeholder='First Name')
+          input(type="text", name="lastname", id='last-name', placeholder='Last Name')
+        .place
+          select(name="country", id='country', value='Country')
+            option(value="Country") Country
+            option(value="Egypt") Egypt
+            option(value="Saudi Arabia") Saudi Arabia
+            option(value="Iraq") Iraq
+            option(value="Qatar") Qatar
+          input(type="text", name="city", id='city', placeholder='City')
+        .street
+          input(type="text", name="street", id='street', placeholder='Street Name')
+        .mobile
+          input(type="text", name="mobile", id='mobile', placeholder='Mobile')
+        .submit-address
+          button.add-btn Confirm Address
+          .address-error

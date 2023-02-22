@@ -1,0 +1,73 @@
+#footer {
+  .resources {
+    background-color: #131313;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    table {
+      border-spacing: 100px 10px;
+      thead {
+        tr {
+          th {
+            position: relative;
+            padding-bottom: 40px;
+            text-align: start;
+            color: #eee;
+            font-size: 20px;
+            &::before {
+              content: '';
+              position: absolute;
+              top: 60%;
+              width: 30px;
+              height: 2px;
+              background-color: $main-color;
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            > a {
+              color: #ddd;
+              font-size: 14px;
+              &:active {
+                opacity: 0.8;
+              }
+            }
+            &.payment {
+              i {
+                color: #fff;
+                font-size: 28px;
+                margin-right: 10px;
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 210px;
+
+    .copyright-year {
+      font-size: 15px;
+    }
+
+    .social-media {
+      font-size: 20px;
+      display: flex;
+      gap: 10px;
+      i {
+        cursor: pointer;
+      }
+    }
+  }
+}

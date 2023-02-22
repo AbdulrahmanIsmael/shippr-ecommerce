@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assests/icon.png">
+    <script src="https://kit.fontawesome.com/43ff5cbbab.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/product.css">
+    <title>Shippr | Product Name</title>
+  </head>
+  <body>
+    <header id="navbar">
+      <h1><a href="./home.html">Shippr</a></h1>
+      <ul class="nav-links">
+        <li><a class="activeNav" href="./home.html">Home</a></li>
+        <li><a href="./cat.html">Categories</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./help.html">Help</a></li>
+      </ul>
+      <ul class="nav-icons">
+        <li><a href="./logIn.html"> <i class="fa-solid fa-user"></i> 
+            <div>Log In</div></a></li>
+        <li><a href="./fav.html"><i class="fa-solid fa-heart"></i> 
+            <div>Favorites</div></a></li>
+        <li><a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i> 
+            <div>My Cart</div></a></li>
+      </ul>
+    </header>
+    <main id="product">
+      <section id="product-welcome">
+        <h2>Product Name</h2>
+      </section>
+      <section id="product-info">
+        <div class="images">
+          <div class="images-image"><img src="./images/showcase1.jpg" alt="Product Image" id="product-image"></div>
+          <div class="images-nav">
+            <ul>
+              <li> <img id="product-image1" src="./images/showcase1.jpg" alt="product image 1"></li>
+              <li> <img id="product-image2" src="./images/showcase2.jpg" alt="product image 2"></li>
+              <li> <img id="product-image3" src="./images/showcase3.jpg" alt="product image 3"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="product-details"></div>
+      </section>
+    </main>
+    <footer id="footer">
+      <div class="resources">
+        <table>
+          <thead>
+            <tr>
+              <th>About The Store</th>
+              <th>Help & Contact</th>
+              <th>Easy Online Shopping</th>
+              <th>Payment Methods</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="./about.html">About Store</a></td>
+              <td><a href="./help.html">All Help Topics</a></td>
+              <td><a href="">Free Delivery</a></td>
+              <td class="payment"><i class="fa-brands fa-cc-paypal"></i> <i class="fa-brands fa-cc-visa"></i> <i class="fa-brands fa-cc-mastercard"></i></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><a href="./help.html">How It Works</a></td>
+              <td><a href="./about.html">100 Days Return</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><a href="./help.html">How to Buy</a></td>
+              <td><a href="./about.html">Free Returns</a></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="copyright">
+        <div class="copyright-year">@Copyright <span id="year"></span> All Right Reserved</div>
+        <div class="social-media"><i class="fa-brands fa-facebook-f"></i><i class="fa-brands fa-twitter"></i><i class="fa-brands fa-instagram"></i></div>
+      </div>
+    </footer>
+    <div class="profile-menu close">
+      <ul>
+        <li class="profile-link"><i class="fa-solid fa-user"></i> Profile</li>
+        <li class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Log Out</li>
+      </ul><i class="fa-solid fa-caret-down"></i>
+    </div>
+    
+    <script type="module" src="./js/product.js"></script>
+    <script src="./js/header.js"></script>
+  </body>
+</html>

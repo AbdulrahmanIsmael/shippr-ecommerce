@@ -1,0 +1,31 @@
+main#profile
+  section#profile-welcome
+    h2 My Profile
+    div Home / My Profile
+  section#profile-content
+    aside.tabs
+      .tab1.active-tab(data-content='tab1') My Orders
+      .tab2(data-content='tab2') Shopping Address
+      .tab3(data-content='tab3') Account Setting
+    .tab-content
+      .orders.show-tab(data-content='tab1')
+        table#orders-table
+          tr
+            th #
+            th Order Name
+            th Date
+            th Total
+      .address.hide-content(data-content='tab2')
+        h2 My Address
+        button.add-address Insert Your Address
+      .setting.hide-content(data-content='tab3')
+        h2 Account Settings
+        .line
+        form#update-info
+          .update-username
+            input(type="text", name="new-username", id='new-username', placeholder='New Username')
+            button#update.update-username-btn Update Username
+          .update-email
+            input(type="email", name="new-email", id='new-email', placeholder='New Email')
+            button#update.update-email-btn Update Email
+          button.update-password-btn Update Password

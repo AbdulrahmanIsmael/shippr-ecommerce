@@ -1,0 +1,111 @@
+@import './include/animation';
+@import './include/vars';
+@import './include/global';
+@import './include/header';
+@import './include/footer';
+@import './include/contact';
+@import './include/profileMenu';
+
+#navbar {
+  position: relative;
+}
+
+#help {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  #help-welcome {
+    width: 100%;
+    background-image: url('../images/path.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h2 {
+      font-family: 'Courgette', cursive;
+      font-size: 70px;
+      letter-spacing: 1.5px;
+      color: #333;
+    }
+
+    div {
+      font-family: 'Courgette', cursive;
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: #333;
+    }
+  }
+
+  #help-instructions {
+    width: 100%;
+    background-color: #fff;
+    padding: 30px 95px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    #instructions {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .instruction {
+        overflow: hidden;
+        position: relative;
+        div {
+          cursor: pointer;
+          border: 1px solid #888;
+          background-color: #fdfdfd;
+          display: flex;
+          align-items: center;
+          padding-left: 10px;
+          padding: 10px 0 10px 10px;
+          h2 {
+            font-family: 'Roboto', cursive;
+            font-size: 17px;
+            color: #333;
+          }
+          i {
+            cursor: pointer;
+            color: #333;
+            font-size: 13px;
+            margin-right: 10px;
+            transition: 300ms linear;
+            &.open {
+              transform: rotate(90deg);
+            }
+          }
+        }
+        .detail {
+          cursor: initial;
+          border: 1px solid #888;
+          border-top: 0;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          transition: 400ms linear;
+          p {
+            font-size: 17px;
+            line-height: 30px;
+          }
+          &.closeReview {
+            opacity: 0;
+            position: absolute;
+            top: -200%;
+
+            > .stars {
+              display: none;
+            }
+
+            > p {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

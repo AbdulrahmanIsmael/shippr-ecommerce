@@ -1,0 +1,17 @@
+main#login
+  section#login-welcome
+    h2 Login
+    div Home / Login 
+  section#form
+    form.login-form
+      legend Welcome Back
+      input(type="text", name="username", placeholder="User Name", id="username")
+      input(type="password", placeholder="Password", id="password")
+      .show-password
+        input(type="checkbox", name="show", id="show")
+        label(for="show") Show Password
+      .forget-password #[a(href="#") Forget Your Password]
+      input(type="submit", value="Login", id='login-btn')
+      .line
+      h3 I'M NEW HERE?
+      a.register(href="./register.html") REGISTER NOW

@@ -1,0 +1,18 @@
+main#login
+  section#login-welcome
+    h2 Register
+    div Login / Register
+  section#form
+    form.login-form
+      legend Welcome To Our Store
+      input(type="text", name="username", placeholder="Enter A User Name", id="username")
+      input(type="email", name="email", placeholder="Enter An Email", id="email")
+      input(type="password", placeholder="Enter A Password", id="password")
+      input(type="password", placeholder="Confirm Your Password", id="confirm-password")
+      .show-password
+        input(type="checkbox", name="show", id="show")
+        label(for="show") Show Password
+      input(type="submit", value="Register", id='login-btn')
+      .line
+      h3 ALREADY HAVE AN ACCOUNT?
+      a.register(href="./logIn.html") LOGIN

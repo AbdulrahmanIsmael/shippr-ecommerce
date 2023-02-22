@@ -1,0 +1,30 @@
+- var storyString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud commodo consequat sit voluptatem accusantium doloremque laudantium Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud commodo consequat sit voluptatem accusantium doloremque laudantium.';
+main#about
+  section#about-welcome
+    h2 About Store
+    div Home / About Store
+  section#our-story
+    .story
+      h2 Our Story
+      p #{storyString}
+    .image
+      img(src="./images/our-story.jpg", alt="Image from google")
+  section#our-features
+    .feature1
+      img(src="./images/f1.png", alt="feature")
+      .feature-text1 Free Delivery
+    .feature2
+      img(src="./images/f2.png", alt="feature") 
+      .feature-text2 40 Days Return
+    .feature3
+      img(src="./images/f3.png", alt="feature")
+      .feature-text3 Free Returns
+    .feature4
+      img(src="./images/f4.png", alt="feature")
+      .feature-text4 24 Hours Support
+  section#contact
+    h2 Subscribe to our News
+    p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    .email
+      input(type="email", name="email", id="email", placeholder="Enter Your Email")
+      input(type="submit", value="Subscribe")

@@ -1,0 +1,19 @@
+#call
+  form
+    legend Get In Touch
+    .line
+    .social-media
+      a(href="#") #[i.fab.fa-facebook-f.fa-2x(style='color: #3b5998')]
+      a(href="#") #[i.fab.fa-twitter.fa-2x(style='color: #55acee')]
+      a(href="#") #[i.fab.fa-instagram.fa-2x(style='color: #ac2bac')]
+    div
+      input#name(type="text", name='name', placeholder='Name')
+      input#email(type="email", name="email", placeholder='Email')
+    div#phone
+      input(type="tel", name="phone", placeholder='+20-1x-xxxx-xxxx', maxlength="13")
+    textarea#msg(name="message", cols="30", rows="3", placeholder='Your Message')
+    input#submit(type="submit", value='Send')
+  button#show #[i.fa-solid.fa-phone]
+|
+|
+script(src="./js/contact.js")
