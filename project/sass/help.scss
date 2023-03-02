@@ -1,5 +1,6 @@
 @import './include/animation';
 @import './include/vars';
+@import './include/mixins';
 @import './include/global';
 @import './include/header';
 @import './include/footer';
@@ -11,18 +12,15 @@
 }
 
 #help {
-  display: flex;
-  flex-direction: column;
+  @include custom-flex(column, initial, center);
   gap: 50px;
-  align-items: center;
   #help-welcome {
+    @include custom-flex(column);
     width: 100%;
     background-image: url('../images/path.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 60px;
-    display: flex;
-    flex-direction: column;
     gap: 20px;
     h2 {
       font-family: 'Courgette', cursive;
@@ -47,19 +45,17 @@
     flex-direction: column;
     gap: 20px;
     #instructions {
+      @include custom-flex(column);
       width: 50%;
-      display: flex;
-      flex-direction: column;
       gap: 20px;
       .instruction {
         overflow: hidden;
         position: relative;
         div {
+          @include custom-flex(initial, initial, center);
           cursor: pointer;
           border: 1px solid #888;
           background-color: #fdfdfd;
-          display: flex;
-          align-items: center;
           padding-left: 10px;
           padding: 10px 0 10px 10px;
           h2 {
@@ -79,12 +75,11 @@
           }
         }
         .detail {
+          @include custom-flex(column);
           cursor: initial;
           border: 1px solid #888;
           border-top: 0;
           padding: 20px;
-          display: flex;
-          flex-direction: column;
           gap: 15px;
           transition: 400ms linear;
           p {

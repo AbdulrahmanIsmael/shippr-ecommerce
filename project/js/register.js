@@ -2,11 +2,6 @@ import { copyrightyear } from './footer.js';
 copyrightyear();
 
 // Define DOM Nodes
-const inputs = document.querySelectorAll(
-  '.login-form > input:not(:last-of-type)'
-);
-const showPassword = document.getElementById('show');
-const errorMsg = document.querySelector('.error-form');
 const registerBtn = document.getElementById('login-btn');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
@@ -16,6 +11,7 @@ const confirmPassword = document.getElementById('confirm-password');
 //TODO: password input visibility system
 passwordVisible();
 function passwordVisible() {
+  const showPassword = document.getElementById('show');
   showPassword.addEventListener('click', (e) => {
     if (e.target.checked) {
       password.type = 'text';
@@ -30,29 +26,39 @@ function passwordVisible() {
 //TODO: Check if all the inputs are filled
 inputsCheck();
 
+function navigateToLogIn() {
+  console.log(localStorage.getItem('username'));
+  if (localStorage.getItem('username')) {
+    location.href = './logIn.html';
+  }
+}
+
+function checkInputsStatus(inputs) {
+  let filled = true;
+  inputs.forEach((input) => {
+    if (!input.value) {
+      filled = false;
+    }
+  });
+  return filled;
+}
+
 function inputsCheck() {
+  const inputs = document.querySelectorAll(
+    '.login-form > input:not(:last-of-type)'
+  );
+  const errorMsg = document.querySelector('.error-form');
+
   registerBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    let filledInputs = 4;
-    let errorInputs = 0;
-    inputs.forEach((input) => {
-      if (input.value === '') {
-        filledInputs--;
-      }
-      if (input.classList.contains('error-input')) {
-        errorInputs++;
-      }
-    });
-
-    if (filledInputs < 4 || errorInputs > 0) {
+    if (!checkInputsStatus(inputs)) {
       errorMsg.classList.add('show-error');
       setTimeout(() => {
         errorMsg.classList.remove('show-error');
       }, 2000);
     } else {
-      console.log('Account has been created');
-      location.href = '../logIn.html';
+      navigateToLogIn();
     }
   });
 }
@@ -146,6 +152,8 @@ function checkPassword() {
       password.value.length < 8
     ) {
       passwordInputMsg();
+    } else {
+      return true;
     }
   });
 }
@@ -169,6 +177,7 @@ function checkConfirmPassword() {
       confirmPasswordInputMsg();
     } else {
       localStorage.setItem('password', password.value);
+      return true;
     }
   });
 }

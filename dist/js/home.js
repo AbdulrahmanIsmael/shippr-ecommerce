@@ -1,29 +1,47 @@
 import { fetchProducts } from './products.js';
 import { copyrightyear } from './footer.js';
-copyrightyear();
+import {
+  logOutProfile,
+  openProfileMenu,
+  userHomePage,
+  profileOfUser,
+  removeActive,
+  activeNavLinks,
+} from './header.js';
+
+headerFooter();
+function headerFooter() {
+  userHomePage();
+  profileOfUser();
+  activeNavLinks();
+  copyrightyear();
+}
 
 // Defining DOM Nodes
 const scNavBtns = document.querySelectorAll('.sc-nav-btn');
-const scs = document.querySelectorAll('.sc');
-const mostLis = document.querySelectorAll('#most-nav > ul > li');
 const productsContainer = document.getElementById('products-container');
-const slideLeft = document.getElementById('slideLeft');
-const slideRight = document.getElementById('slideRight');
-const reviewBtns = document.querySelectorAll('#review-row');
-const shopBtns = document.querySelectorAll('.sc-btn');
-const adsBtns = document.querySelectorAll('.ads-btn');
-const cartBtns = document.querySelectorAll('.cart-btn');
-const tableLinks = document.querySelectorAll('#footer > .resources > table a');
-const articlesLinks = document.querySelectorAll('#news > .newsArticles a');
-// const userNameHomePage = document.querySelector(
-//   '.nav-icons > li:first-of-type > a > div'
-// );
-// const scUserH2 = document.querySelector('#sc1 .sc-content .text h2');
-// const scUserP = document.querySelector('#sc1 .sc-content .text p');
-// const profileMenu = document.querySelector('.profile-menu');
-// const profileLink = document.querySelector('.profile-link');
+
+//TODO: setting up the showcases switching system
+changingShowcase();
+
+function changingShowcase() {
+  const localStorageUsername = localStorage.getItem('username');
+  const scUserH2 = document.querySelector('#sc1 .sc-content .text h2');
+  const scUserP = document.querySelector('#sc1 .sc-content .text p');
+  const localStoragePassword = localStorage.getItem('password');
+
+  if (localStoragePassword) {
+    scUserH2.innerHTML = `Welcome ${localStorageUsername}`;
+    scUserP.innerHTML = 'Start Buying Now!';
+  }
+}
+
+//TODO: function to Add Event to the nav buttons & navigate through the showcases
+navShowcases();
 
 function showcaseRelated() {
+  const scs = document.querySelectorAll('.sc');
+
   scs.forEach((sc) => {
     scNavBtns.forEach((btn) => {
       if (btn.classList.contains('active')) {
@@ -39,8 +57,7 @@ function showcaseRelated() {
   });
 }
 
-//TODO: function to Add Event to the nav buttons & navigate through the showcases
-const navShowcases = () => {
+function navShowcases() {
   scNavBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -54,15 +71,6 @@ const navShowcases = () => {
       showcaseRelated();
     });
   });
-};
-
-navShowcases();
-4;
-
-function checkActiveShowcase() {
-  scNavBtns.forEach((btn) => {
-    btn.classList.remove('active');
-  });
 }
 
 //TODO: function to make the showcases automatically switch
@@ -70,6 +78,12 @@ scsAutowitch();
 const switchInterval = setInterval(() => {
   scsAutowitch();
 }, 15000);
+
+function checkActiveShowcase() {
+  scNavBtns.forEach((btn) => {
+    btn.classList.remove('active');
+  });
+}
 
 function scsAutowitch() {
   setTimeout(() => {
@@ -92,7 +106,7 @@ function scsAutowitch() {
 }
 
 //TODO: Setting up rating system for products
-function starOne(star) {
+export function starOne(star) {
   const rateStar = Math.floor(star);
   if (rateStar >= 1) {
     return ' gold';
@@ -101,7 +115,7 @@ function starOne(star) {
   }
 }
 
-function starTwo(star) {
+export function starTwo(star) {
   const rateStar = Math.floor(star);
   if (rateStar >= 2) {
     return ' gold';
@@ -110,7 +124,7 @@ function starTwo(star) {
   }
 }
 
-function starThree(star) {
+export function starThree(star) {
   const rateStar = Math.floor(star);
   if (rateStar >= 3) {
     return ' gold';
@@ -119,7 +133,7 @@ function starThree(star) {
   }
 }
 
-function starFour(star) {
+export function starFour(star) {
   const rateStar = Math.floor(star);
   if (rateStar >= 4) {
     return ' gold';
@@ -128,7 +142,7 @@ function starFour(star) {
   }
 }
 
-function starFive(star) {
+export function starFive(star) {
   const rateStar = Math.floor(star);
   if (rateStar >= 5) {
     return ' gold';
@@ -140,17 +154,22 @@ function starFive(star) {
 //TODO: Fetch new arrival products (if stock > 50 then this is new arrival product)
 newArrivalFetch();
 
-function newArrivalFetch() {
+export function newArrivalFetch() {
   const products = fetchProducts();
   productsContainer.innerHTML = '';
   products.then((products) => {
+    if (!localStorage.getItem('products')) {
+      localStorage.setItem('products', JSON.stringify(products.products));
+    }
     products.products.forEach((product) => {
       if (product.stock <= 50) {
         productsContainer.innerHTML += `
               <div class="product">
                 <div class="product-image">
                 <img src="${product.images[0]}">
-                <div class='offer'>${product.discountPercentage}%</div>
+                <div class='offer'>${
+                  product.discountPercentage
+                }% <i class="fa-solid fa-tag"></i></div>
                 </div>
                 <div class="product-info">
                   <h2>${product.title}</h2>
@@ -186,7 +205,9 @@ function mostRatedFetch() {
               <div class="product">
                 <div class="product-image">
                 <img src="${product.images[0]}">
-                <div class='offer'>${product.discountPercentage}%</div>
+                <div class='offer'>${
+                  product.discountPercentage
+                }% <i class="fa-solid fa-tag"></i></div>
                 </div>
                 <div class="product-info">
                   <h2>${product.title}</h2>
@@ -224,7 +245,9 @@ function bestOffersFetch() {
               <div class="product">
                 <div class="product-image">
                 <img src="${product.images[0]}">
-                <div class='offer'>${product.discountPercentage}%</div>
+                <div class='offer'>${
+                  product.discountPercentage
+                }% <i class="fa-solid fa-tag"></i></div>
                 </div>
                 <div class="product-info">
                   <h2>${product.title}</h2>
@@ -253,6 +276,8 @@ function bestOffersFetch() {
 mostLisSwitch();
 
 function mostLisSwitch() {
+  const mostLis = document.querySelectorAll('#most-nav > ul > li');
+
   mostLis.forEach((li) => {
     li.addEventListener('click', (e) => {
       if (!li.classList.contains('active')) {
@@ -278,6 +303,9 @@ function mostLisSwitch() {
 slideProducts();
 
 function slideProducts() {
+  const slideLeft = document.getElementById('slideLeft');
+  const slideRight = document.getElementById('slideRight');
+
   let productsContainerWidth = productsContainer.getBoundingClientRect().width;
 
   slideLeft.addEventListener('click', () => {
@@ -293,28 +321,61 @@ function slideProducts() {
 expandReview();
 
 function expandReview() {
+  const reviewBtns = document.querySelectorAll('.reviewer-personal-info');
+
   reviewBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      e.target.classList.toggle('open');
-      if (e.target.classList.contains('open')) {
-        e.target.parentElement.nextElementSibling.classList.remove(
-          'closeReview'
-        );
+      const reviewRow = e.target.lastElementChild;
+      const reviewInfo = e.target.nextElementSibling;
+      reviewRow.classList.toggle('open');
+      if (reviewRow.classList.contains('open')) {
+        reviewInfo.classList.remove('closeReview');
       } else {
-        e.target.parentElement.nextElementSibling.classList.add('closeReview');
+        reviewInfo.classList.add('closeReview');
       }
     });
   });
 }
 
-//TODO: Function to make the buttons move to the login page if the user did not sign in
+//TODO: Open Product Page
+productPage();
+
+function findProductFromStorage(title) {
+  const productsStorage = JSON.parse(localStorage.getItem('products'));
+  productsStorage.forEach((product) => {
+    if (product.title === title) {
+      localStorage.setItem('product', JSON.stringify(product));
+    }
+  });
+}
+
+function productPage() {
+  productsContainer.addEventListener('click', (e) => {
+    const product = e.target.parentElement;
+    if (product.classList.contains('product-image')) {
+      //* uncomment that after finishing the functionality
+      // check if the user is signed in or no
+      if (!localStorage.getItem('username')) {
+        location.href = './logIn.html';
+      } else {
+        const productTitle =
+          product.nextElementSibling.firstElementChild.textContent;
+        findProductFromStorage(productTitle);
+        location.href = './product.html';
+      }
+      //* uncomment that after finishing the functionality
+    }
+  });
+}
+
+//TODO: make the buttons move to the login page if the user did not sign in
 userStatus();
 
 function checkUserStatus(btns, hrefLink) {
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
       if (!localStorage.getItem('username')) {
-        location.href = '../logIn.html';
+        location.href = './logIn.html';
       } else {
         location.href = hrefLink;
       }
@@ -323,61 +384,18 @@ function checkUserStatus(btns, hrefLink) {
 }
 
 function userStatus() {
+  const shopBtns = document.querySelectorAll('.sc-btn');
+  const adsBtns = document.querySelectorAll('.ads-btn');
+  const cartBtns = document.querySelectorAll('.cart-btn');
+  const tableLinks = document.querySelectorAll(
+    '#footer > .resources > table a'
+  );
+  const articlesLinks = document.querySelectorAll('#news > .newsArticles a');
+
   //! Remember to modify the links here later (hrefLink)
-  checkUserStatus(shopBtns, '../cat.html');
-  checkUserStatus(adsBtns, '../cat.html');
-  checkUserStatus(cartBtns, '../home.html');
-  checkUserStatus(tableLinks, '../home.html');
-  checkUserStatus(articlesLinks, '../cat.html');
+  checkUserStatus(shopBtns, './cat.html');
+  checkUserStatus(adsBtns, './cat.html');
+  checkUserStatus(cartBtns, './home.html');
+  checkUserStatus(tableLinks, './home.html');
+  checkUserStatus(articlesLinks, './cat.html');
 }
-
-//TODO: Change the home page if the user is logged in
-// userHomePage();
-
-// function openProfileMenu() {
-//   userNameHomePage.parentElement.parentElement.addEventListener(
-//     'click',
-//     (e) => {
-//       e.preventDefault();
-//       userNameHomePage.parentElement.removeAttribute('href');
-//       profileMenu.classList.toggle('close');
-//     }
-//   );
-// }
-
-// function logOutProfile() {
-//   const logOutBtn = document.querySelector('.logout-link');
-//   const profileBtn = document.querySelector('.profile-link');
-//   logOutBtn.addEventListener('click', () => {
-//     localStorage.clear();
-//     location.reload();
-//   });
-//   profileBtn.addEventListener('click', () => {
-//     location.href = './profile.html'; //! Do not forget to create profile page
-//   });
-// }
-
-// function userHomePage() {
-//   const localStorageUsername = localStorage.getItem('username');
-//   const localStorageEmail = localStorage.getItem('email');
-//   const localStoragePassword = localStorage.getItem('password');
-
-//   if (localStorageEmail && localStoragePassword && localStorageUsername) {
-//     userNameHomePage.innerHTML = localStorageUsername;
-//     scUserH2.innerHTML = `Welcome ${localStorageUsername}`;
-//     scUserP.innerHTML = 'Start Buying Now!';
-//     openProfileMenu();
-//     logOutProfile();
-//   }
-// }
-
-// //TODO: Profile of the user
-// profileOfUser();
-
-// function profileOfUser() {
-//   profileLink.addEventListener('click', () => {
-//     if (localStorage.getItem('username')) {
-//       location.href = '../profile.html';
-//     }
-//   });
-// }

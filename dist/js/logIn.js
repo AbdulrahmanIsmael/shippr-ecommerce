@@ -2,19 +2,13 @@ import { copyrightyear } from './footer.js';
 copyrightyear();
 
 // Define DOM Nodes
-const registerPage = document.querySelector('.register');
-const inputs = document.querySelectorAll(
-  '.login-form > input:not(:last-of-type)'
-);
-const showPassword = document.getElementById('show');
-const loginBtn = document.getElementById('login-btn');
-const errorMsg = document.querySelector('.error-form');
 const password = document.getElementById('password');
-const username = document.getElementById('username');
 
 //TODO: password input visibility system
 passwordVisible();
 function passwordVisible() {
+  const showPassword = document.getElementById('show');
+
   showPassword.addEventListener('click', (e) => {
     if (e.target.checked) {
       password.type = 'text';
@@ -27,17 +21,34 @@ function passwordVisible() {
 //TODO: Check if all the inputs are filled
 inputsCheck();
 
+function openProfile() {
+  if (logInSystem()) {
+    location.href = './home.html';
+  }
+}
+
+function checkInputsStatus(inputs) {
+  let filled = true;
+  inputs.forEach((input) => {
+    if (!input.value) {
+      filled = false;
+    }
+  });
+  return filled;
+}
+
 function inputsCheck() {
+  const inputs = document.querySelectorAll(
+    '.login-form > input:not(:last-of-type)'
+  );
+  const loginBtn = document.getElementById('login-btn');
+  const errorMsg = document.querySelector('.error-form');
+
   loginBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    let filledInputs = 2;
-    inputs.forEach((input) => {
-      if (input.value === '') {
-        filledInputs--;
-      }
-    });
-    if (!filledInputs) {
+    if (!checkInputsStatus(inputs)) {
+      console.log('empty');
       errorMsg.classList.add('show-error');
       setTimeout(() => {
         errorMsg.classList.remove('show-error');
@@ -50,8 +61,10 @@ function inputsCheck() {
 registerPageMove();
 
 function registerPageMove() {
+  const registerPage = document.querySelector('.register');
+
   registerPage.addEventListener('click', () => {
-    location.href = '../register.html';
+    location.href = './register.html';
   });
 }
 
@@ -59,6 +72,8 @@ function registerPageMove() {
 logInSystem();
 
 function usernameWrongMsg() {
+  const username = document.getElementById('username');
+
   username.value = '';
   username.classList.add('error-input');
   username.placeholder = 'Wrong username, Please enter the right username';
@@ -79,13 +94,15 @@ function passwordWrongMsg() {
 }
 
 function logInSystem() {
+  const username = document.getElementById('username');
+  const loginBtn = document.getElementById('login-btn');
+
   loginBtn.addEventListener('click', () => {
     if (
       username.value === localStorage.getItem('username') &&
       password.value === localStorage.getItem('password')
     ) {
-      console.log('You are logged in!');
-      location.href = '../home.html';
+      location.href = './home.html';
     }
     if (username.value !== localStorage.getItem('username')) {
       usernameWrongMsg();

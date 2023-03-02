@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./assests/icon.png">
     <script src="https://kit.fontawesome.com/43ff5cbbab.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/register.css">
-    <title>Shippr | Register</title>
+    <link rel="stylesheet" href="./css/cart.css">
+    <title>Shippr | My Cart</title>
   </head>
   <body>
     <header id="navbar">
@@ -27,27 +27,58 @@
             <div>My Cart</div></a></li>
       </ul>
     </header>
-    <main id="login">
-      <section id="login-welcome">
-        <h2>Register</h2>
-        <div>Login / Register</div>
+    <main id="cart">
+      <section id="cart-welcome">
+        <h2>My Cart</h2>
+        <div>Home / My Cart</div>
       </section>
-      <section id="form">
-        <form class="login-form">
-          <legend>Welcome To Our Store</legend>
-          <input type="text" name="username" placeholder="Enter A User Name" id="username">
-          <input type="email" name="email" placeholder="Enter An Email" id="email">
-          <input type="password" placeholder="Enter A Password" id="password">
-          <input type="password" placeholder="Confirm Your Password" id="confirm-password">
-          <div class="show-password">
-            <input type="checkbox" name="show" id="show">
-            <label for="show">Show Password</label>
-          </div>
-          <input type="submit" value="Register" id="login-btn">
+      <section id="cart-table">
+        <table class="cart-list">
+          <tr class="headings">
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+            <th>Delete</th>
+          </tr>
+        </table>
+      </section>
+      <div class="cart-btns"><a class="continue-shopping" href="./home.html"><i class="fa-sharp fa-solid fa-arrow-left"></i> Continue Shopping</a>
+        <button class="update-cart">Update Cart</button>
+      </div>
+      <div class="procees-shopping">
+        <div class="coupon">
+          <h3>Discount Codes</h3>
           <div class="line"></div>
-          <h3>ALREADY HAVE AN ACCOUNT?</h3><a class="register" href="./logIn.html">LOGIN</a>
-        </form>
-      </section>
+          <p>Enter your coupon code if you have one.</p>
+          <div class="input-code">
+            <input type="text" name="coupon" id="coupon">
+            <button class="apply-coupon">Apply Coupon</button>
+          </div>
+        </div>
+        <div class="total-proceeds">
+          <h3>Shopping Cart Total</h3>
+          <div class="line"></div>
+          <div class="calcs">
+            <div class="subtotal">
+              <div class="subtotal-title">Subtotal</div>
+              <div class="subtotal-value"></div>
+            </div>
+            <div class="shipping">
+              <div class="shipping-title">Shipping</div>
+              <div class="shipping-value"></div>
+            </div>
+            <div class="coupon-code">
+              <div class="coupon-title">Coupon Code</div>
+              <div class="coupon-value"></div>
+            </div>
+            <div class="grand-total">
+              <div class="total-title">Grand Total</div>
+              <div class="total-value"></div>
+            </div>
+          </div><a class="checkout-link" href="checkout.html">Proceed To Checkout </a>
+        </div>
+      </div>
     </main>
     <footer id="footer">
       <div class="resources">
@@ -87,10 +118,12 @@
         <div class="social-media"><i class="fa-brands fa-facebook-f"></i><i class="fa-brands fa-twitter"></i><i class="fa-brands fa-instagram"></i></div>
       </div>
     </footer>
-    <div class="error-form">
-      <div>Please Fill All The Information right!</div>
+    <div class="profile-menu close">
+      <ul>
+        <li class="profile-link"><i class="fa-solid fa-user"></i> Profile</li>
+        <li class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Log Out</li>
+      </ul><i class="fa-solid fa-caret-down"></i>
     </div>
-    
-    <script type="module" src="./js/register.js"></script>
+    <script type="module" src="./js/cart.js"></script>
   </body>
 </html>

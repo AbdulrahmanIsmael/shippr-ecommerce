@@ -1,13 +1,27 @@
 main#product
-  section#product-welcome
-    h2 Product Name
-  section#product-info
-    .images
-      .images-image
-        img(src="./images/showcase1.jpg", alt="Product Image", id='product-image')
-      .images-nav
-        ul
-          li  #[img#product-image1(src="./images/showcase1.jpg", alt="product image 1")]
-          li  #[img#product-image2(src="./images/showcase2.jpg", alt="product image 2")]
-          li  #[img#product-image3(src="./images/showcase3.jpg", alt="product image 3")]
-    .product-details
+  //- section#product-welcome
+  //-   h2 Product Name
+  //- section#product-info
+  //-   .images
+  //-     .images-image
+  //-       img(src="./images/showcase1.jpg", alt="Product Image", id='product-image')
+  //-     .images-nav
+  //-       ul
+  //-         li.targeted  #[img#product-image1.image-nav(src="./images/showcase1.jpg", alt="product image 1")]
+  //-         li  #[img#product-image2.image-nav(src="./images/showcase2.jpg", alt="product image 2")]
+  //-         li  #[img#product-image3.image-nav(src="./images/showcase3.jpg", alt="product image 3")]
+  //-   .product-details
+  //-     .product-title
+  //-       h2.title Product Name
+  //-       p.brand #[small Product Brand]
+  //-     .details
+  //-       p.price #[span 20$] #[span.discount 12% #[i.fa-solid.fa-tag]]
+  //-       p.rate Rate #[span 4.55]
+  //-       p.category Category #[span Mobile]
+  //-       p.desc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita consequatur dolor veritatis reprehenderit
+  //-     .line
+  //-     .product-purchase
+  //-       button.wishlist-btn #[i.fa-solid.fa-heart] Add To Wish list
+  //-       .product-add-cart
+  //-         input(type="number", name="amount", id='product-amount', value="1", min="1")
+  //-         button.add-cart #[i.fa-solid.fa-cart-plus] Add To Cart

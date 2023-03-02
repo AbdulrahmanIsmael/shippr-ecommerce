@@ -1,5 +1,6 @@
 @import './include/animation';
 @import './include/vars';
+@import './include/mixins';
 @import './include/global';
 @import './include/header';
 @import './include/footer';
@@ -7,18 +8,15 @@
 @import './include/profileMenu';
 
 #about {
-  display: flex;
-  flex-direction: column;
+  @include custom-flex(column, initial, center);
   gap: 50px;
-  align-items: center;
   #about-welcome {
+    @include custom-flex(column);
     width: 100%;
     background-image: url('../images/path.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 60px;
-    display: flex;
-    flex-direction: column;
     gap: 20px;
     h2 {
       font-family: 'Courgette', cursive;
@@ -45,8 +43,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     .story {
-      display: flex;
-      flex-direction: column;
+      @include custom-flex(column);
       gap: 80px;
       border-radius: inherit;
       h2 {
@@ -82,17 +79,10 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
     > div {
-      // width: 250px;
-      // height: 200px;
-      border-radius: 8px;
-      display: flex;
+      @include center;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      border-radius: 8px;
       gap: 20px;
       padding: 10px;
       background-color: #eee;
@@ -108,15 +98,13 @@
   }
 
   #contact {
+    @include center;
+    flex-direction: column;
     width: 100%;
     background-image: url('../images/path.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 30px 95px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
     h2 {
       font-family: 'Cairo', sans-serif;
@@ -135,10 +123,8 @@
     }
 
     .email {
+      @include center;
       margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       input[type='email'] {
         transition: 500ms linear;
         border: 1px dotted #555;

@@ -1,27 +1,20 @@
 @import './include/animation';
 @import './include/vars';
+@import './include/mixins';
 @import './include/global';
 @import './include/header';
 @import './include/footer';
 
-#navbar {
-  position: relative;
-}
-
 #login {
+  @include custom-flex(column, space-between, center);
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   #login-welcome {
+    @include custom-flex(column);
     width: 100%;
     background-image: url('../images/path.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 60px;
-    display: flex;
-    flex-direction: column;
     gap: 20px;
     h2 {
       font-family: 'Courgette', cursive;
@@ -47,10 +40,7 @@
     height: 430px;
     width: 500px;
     .login-form {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
+      @include custom-flex(column, center, flex-start);
       padding: 30px;
       gap: 15px;
       legend {
@@ -152,8 +142,9 @@
   background-color: #ff0000;
   color: #fff;
   padding: 12px 17px;
-  z-index: 10000;
+  z-index: 3000000;
   margin-top: -200px;
+
   &.show-error {
     margin-top: 0;
   }

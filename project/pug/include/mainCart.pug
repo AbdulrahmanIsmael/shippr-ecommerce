@@ -1,0 +1,46 @@
+main#cart
+  section#cart-welcome
+    h2 My Cart
+    div Home / My Cart
+  section#cart-table
+    table.cart-list
+      tr.headings
+        th Product Name
+        th Unit Price
+        th Qty
+        th Subtotal
+        th Delete
+      //- tr
+      //-   td.product-title #[img(src="./images/review1.jpg", alt="")] Product Name
+      //-   td 20$
+      //-   td #[input(type="number", name="quantity" , id="qty")]
+      //-   td 40$
+      //-   td #[button.remove #[i.fa-solid.fa-trash]]
+  .cart-btns
+    a.continue-shopping(href="./home.html") #[i.fa-sharp.fa-solid.fa-arrow-left] Continue Shopping
+    button.update-cart Update Cart
+  .procees-shopping
+    .coupon
+      h3 Discount Codes
+      .line
+      p Enter your coupon code if you have one.
+      .input-code
+        input(type="text", name="coupon", id="coupon")
+        button.apply-coupon Apply Coupon
+    .total-proceeds
+      h3 Shopping Cart Total
+      .line
+      .calcs
+        .subtotal
+          .subtotal-title Subtotal
+          .subtotal-value
+        .shipping
+          .shipping-title Shipping
+          .shipping-value
+        .coupon-code
+          .coupon-title Coupon Code
+          .coupon-value
+        .grand-total
+          .total-title Grand Total
+          .total-value
+      a.checkout-link(href="checkout.html") Proceed To Checkout 

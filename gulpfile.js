@@ -32,6 +32,13 @@ gulp.task('images', () => {
     .pipe(livereload());
 });
 
+gulp.task('assests', () => {
+  gulp
+    .src('./project/assests/*.*')
+    .pipe(gulp.dest('./dist/assests'))
+    .pipe(livereload());
+});
+
 gulp.task('watch', () => {
   livereload.listen({
     port: 3000,
@@ -40,8 +47,9 @@ gulp.task('watch', () => {
   gulp.watch('./project/pug/*.pug', gulp.series('pug'));
   gulp.watch('./project/sass/*.scss', gulp.series('sass'));
   gulp.watch('./project/images/*.*', gulp.series('images'));
+  gulp.watch('./project/assests/*.*', gulp.series('assests'));
 });
 
 gulp.task('default', gulp.parallel('watch'));
 
-gulp.task('each', gulp.parallel('pug', 'sass', 'js', 'images'));
+gulp.task('each', gulp.parallel('pug', 'sass', 'js', 'images', 'assests'));

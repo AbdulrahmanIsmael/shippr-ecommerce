@@ -1,35 +1,26 @@
 import { copyrightyear } from './footer.js';
-copyrightyear();
+import {
+  logOutProfile,
+  openProfileMenu,
+  userHomePage,
+  profileOfUser,
+  removeActive,
+  activeNavLinks,
+} from './header.js';
 
-// Define DOM Nodes
-const addressBoxInfo = document.querySelector('.address');
-const tabBtns = document.querySelectorAll('.tabs > div');
-const tabsContent = document.querySelectorAll('.tab-content > div');
-const insertAddressBtn = document.querySelector('.add-address');
-const addressForm = document.getElementById('address-form');
-const overlay = document.querySelector('.overlay');
-const closeForm = document.getElementById('xmark-form');
-const firstName = document.getElementById('first-name');
-const lastName = document.getElementById('last-name');
-const country = document.getElementById('country');
-const city = document.getElementById('city');
-const street = document.getElementById('street');
-const mobile = document.getElementById('mobile');
-const addBtn = document.querySelector('.add-btn');
-const addressError = document.querySelector('.address-error');
-const updatePasswordBtn = document.querySelector('.update-password-btn');
-const updatePassword = document.getElementById('update-password');
-const xmarkPassword = document.getElementById('xmark-password');
-const newUsername = document.getElementById('new-username');
-const updateUsernameBtn = document.querySelector('button.update-username-btn');
-const newEmail = document.getElementById('new-email');
-const updateEmailBtn = document.querySelector('button.update-email-btn');
-const changePasswordBtn = document.getElementById('change-password');
+headerFooter();
+function headerFooter() {
+  userHomePage();
+  profileOfUser();
+  activeNavLinks();
+  copyrightyear();
+}
 
 //TODO: set click event on the tabs buttons
 tabBtn();
 
 function addHideContent(target) {
+  const tabsContent = document.querySelectorAll('.tab-content > div');
   tabsContent.forEach((tab) => {
     tab.classList.remove('show-tab');
     setTimeout(() => {
@@ -45,6 +36,7 @@ function addHideContent(target) {
 }
 
 function addActiveClass(target) {
+  const tabBtns = document.querySelectorAll('.tabs > div');
   tabBtns.forEach((btn) => {
     btn.classList.remove('active-tab');
   });
@@ -52,6 +44,8 @@ function addActiveClass(target) {
 }
 
 function tabBtn() {
+  const tabsContent = document.querySelectorAll('.tab-content > div');
+  const tabBtns = document.querySelectorAll('.tabs > div');
   tabBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       tabsContent.forEach((tab) => {
@@ -77,6 +71,7 @@ if (document.querySelector('.address-delete')) {
 }
 
 function closeAddressForm(target) {
+  const overlay = document.querySelector('.overlay');
   target.classList.remove('show');
   setTimeout(() => {
     overlay.style.display = 'none';
@@ -85,6 +80,12 @@ function closeAddressForm(target) {
 }
 
 function formValidation() {
+  const firstName = document.getElementById('first-name');
+  const lastName = document.getElementById('last-name');
+  const country = document.getElementById('country');
+  const city = document.getElementById('city');
+  const street = document.getElementById('street');
+  const mobile = document.getElementById('mobile');
   if (
     firstName.value &&
     lastName.value &&
@@ -105,6 +106,7 @@ function formValidation() {
 }
 
 function confirmAddressBox() {
+  const addressBoxInfo = document.querySelector('.address');
   const name = localStorage.getItem('name');
   const country = localStorage.getItem('country');
   const city = localStorage.getItem('city');
@@ -128,6 +130,7 @@ function confirmAddressBox() {
 }
 
 function showAddressError() {
+  const addressError = document.querySelector('.address-error');
   addressError.innerHTML = 'Please Insert All The Information Above';
   setTimeout(() => {
     addressError.innerHTML = '';
@@ -135,6 +138,12 @@ function showAddressError() {
 }
 
 function addAddressForm() {
+  const insertAddressBtn = document.querySelector('.add-address');
+  const addressForm = document.getElementById('address-form');
+  const closeForm = document.getElementById('xmark-form');
+  const addBtn = document.querySelector('.add-btn');
+  const overlay = document.querySelector('.overlay');
+
   insertAddressBtn.addEventListener('click', () => {
     if (!addressForm.classList.contains('show')) {
       overlay.style.display = 'block';
@@ -173,6 +182,11 @@ function deleteAddress(deleteBtn) {
 }
 
 function changePassword() {
+  const updatePasswordBtn = document.querySelector('.update-password-btn');
+  const updatePassword = document.getElementById('update-password');
+  const xmarkPassword = document.getElementById('xmark-password');
+  const overlay = document.querySelector('.overlay');
+
   updatePasswordBtn.addEventListener('click', (e) => {
     e.preventDefault();
     if (!updatePassword.classList.contains('show')) {
@@ -194,6 +208,8 @@ function changePassword() {
 validateUsername();
 
 function usernameMsgError() {
+  const newUsername = document.getElementById('new-username');
+
   newUsername.value = '';
   newUsername.classList.add('error-input');
   newUsername.placeholder =
@@ -205,6 +221,11 @@ function usernameMsgError() {
 }
 
 function validateUsername() {
+  const updateUsernameBtn = document.querySelector(
+    'button.update-username-btn'
+  );
+  const newUsername = document.getElementById('new-username');
+
   updateUsernameBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const newUsernameValue = newUsername.value.split('');
@@ -219,6 +240,7 @@ function validateUsername() {
     }
     if (numbersUserName >= 2 && newUsernameValue.length >= 8) {
       localStorage.setItem('username', newUsername.value);
+      location.reload();
     }
   });
 }
@@ -227,6 +249,8 @@ function validateUsername() {
 emailCheck();
 
 function newEmailMsgError() {
+  const newEmail = document.getElementById('new-email');
+
   newEmail.value = '';
   newEmail.classList.add('error-input');
   newEmail.placeholder = 'Wrong Email, Please Enter An Right One!';
@@ -237,6 +261,8 @@ function newEmailMsgError() {
 }
 
 function emailCheck() {
+  const newEmail = document.getElementById('new-email');
+  const updateEmailBtn = document.querySelector('button.update-email-btn');
   const emailPattern = /\w+@[a-z]+\.[a-z]{2,3}/;
   updateEmailBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -245,6 +271,7 @@ function emailCheck() {
       newEmailMsgError();
     } else if (newEmail.value.match(emailPattern)) {
       localStorage.setItem('email', newEmail.value);
+      location.reload();
     }
   });
 }
@@ -266,9 +293,13 @@ function changingPasswordValidation(old, cOld, newPass, cNew) {
   const passwordPattern1 = /\d+/;
   const passwordPattern2 = /[A-Z]+/;
   const passwordPattern3 = /[a-z]+/;
+
   let valCount = 0;
   // Validation Confimation
-  if (old === localStorage.getItem('password') && cOld === old) {
+  if (
+    old.value === localStorage.getItem('password') &&
+    cOld.value === old.value
+  ) {
     valCount++;
   }
 
@@ -282,15 +313,16 @@ function changingPasswordValidation(old, cOld, newPass, cNew) {
   }
 
   if (valCount === 2) {
-    localStorage.setItem('password', newPass);
+    localStorage.setItem('password', newPass.value);
+    location.reload();
   }
 
-  if (old !== localStorage.getItem('password')) {
+  if (old.value !== localStorage.getItem('password')) {
     // Error Msgs
     passwordMsgError(old, 'password is wrong', 'Old Password');
   }
 
-  if (cOld !== old) {
+  if (cOld.value !== old.value) {
     passwordMsgError(
       cOld,
       'No match, confirmation failed',
@@ -311,7 +343,7 @@ function changingPasswordValidation(old, cOld, newPass, cNew) {
     );
   }
 
-  if (cNew !== newPass) {
+  if (cNew.value !== newPass.value) {
     passwordMsgError(
       cNew,
       'No match, confirmation failed',
@@ -325,6 +357,8 @@ function changePasswordProcess() {
   const confirmOldPassword = document.getElementById('confirm-old-password');
   const newPassword = document.getElementById('new-password');
   const confirmNewPassword = document.getElementById('confirm-new-password');
+  const changePasswordBtn = document.getElementById('change-password');
+
   changePasswordBtn.addEventListener('click', (e) => {
     e.preventDefault();
 

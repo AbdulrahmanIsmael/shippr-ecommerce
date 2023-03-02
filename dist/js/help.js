@@ -1,13 +1,28 @@
 import { copyrightyear } from './footer.js';
-copyrightyear();
+import {
+  logOutProfile,
+  openProfileMenu,
+  userHomePage,
+  profileOfUser,
+  removeActive,
+  activeNavLinks,
+} from './header.js';
 
-// Define DOM Nodes
-const instructions = document.querySelectorAll('.instruction > div');
+headerFooter();
+function headerFooter() {
+  userHomePage();
+  profileOfUser();
+  activeNavLinks();
+  copyrightyear();
+}
 
 //TODO: expand instructions
 expandInstruction();
 
+//! need to be modified to expand the instruction box even in the case of clicking on the text...
 function expandInstruction() {
+  const instructions = document.querySelectorAll('.instruction > div');
+
   instructions.forEach((ins) => {
     ins.addEventListener('click', (e) => {
       const row = e.target.firstElementChild;

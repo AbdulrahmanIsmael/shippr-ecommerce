@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./assests/icon.png">
     <script src="https://kit.fontawesome.com/43ff5cbbab.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/register.css">
-    <title>Shippr | Register</title>
+    <link rel="stylesheet" href="./css/fav.css">
+    <title>Shippr | Favorites</title>
   </head>
   <body>
     <header id="navbar">
@@ -27,27 +27,22 @@
             <div>My Cart</div></a></li>
       </ul>
     </header>
-    <main id="login">
-      <section id="login-welcome">
-        <h2>Register</h2>
-        <div>Login / Register</div>
+    <main id="fav">
+      <section id="fav-welcome">
+        <h2>Favorites</h2>
+        <div>Home / Favorites</div>
       </section>
-      <section id="form">
-        <form class="login-form">
-          <legend>Welcome To Our Store</legend>
-          <input type="text" name="username" placeholder="Enter A User Name" id="username">
-          <input type="email" name="email" placeholder="Enter An Email" id="email">
-          <input type="password" placeholder="Enter A Password" id="password">
-          <input type="password" placeholder="Confirm Your Password" id="confirm-password">
-          <div class="show-password">
-            <input type="checkbox" name="show" id="show">
-            <label for="show">Show Password</label>
-          </div>
-          <input type="submit" value="Register" id="login-btn">
-          <div class="line"></div>
-          <h3>ALREADY HAVE AN ACCOUNT?</h3><a class="register" href="./logIn.html">LOGIN</a>
-        </form>
-      </section>
+      <section id="fav-table">
+        <table class="fav-list">
+          <tr class="headings">
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Qty</th>
+            <th>Add To Card</th>
+            <th>Delete</th>
+          </tr>
+        </table>
+      </section><a class="continue-shopping" href="./home.html"><i class="fa-sharp fa-solid fa-arrow-left"></i> Continue Shopping</a>
     </main>
     <footer id="footer">
       <div class="resources">
@@ -87,10 +82,12 @@
         <div class="social-media"><i class="fa-brands fa-facebook-f"></i><i class="fa-brands fa-twitter"></i><i class="fa-brands fa-instagram"></i></div>
       </div>
     </footer>
-    <div class="error-form">
-      <div>Please Fill All The Information right!</div>
+    <div class="profile-menu close">
+      <ul>
+        <li class="profile-link"><i class="fa-solid fa-user"></i> Profile</li>
+        <li class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Log Out</li>
+      </ul><i class="fa-solid fa-caret-down"></i>
     </div>
-    
-    <script type="module" src="./js/register.js"></script>
+    <script type="module" src="./js/fav.js"></script>
   </body>
 </html>
