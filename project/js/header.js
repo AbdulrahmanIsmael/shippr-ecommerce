@@ -21,7 +21,7 @@ export function logOutProfile() {
     location.reload();
   });
   profileLink.addEventListener('click', () => {
-    location.href = './profile.html'; //! Do not forget to create profile page
+    location.href = './profile.html';
   });
 }
 
@@ -81,11 +81,50 @@ export function expandMenu() {
       setTimeout(() => {
         showMenu.classList.add('show-res-menu');
       }, 100);
+      logInOut();
     } else {
       showMenu.classList.remove('show-res-menu');
       setTimeout(() => {
         showMenu.style.display = 'none';
       }, 400);
     }
+  });
+}
+
+function logInOut() {
+  const logInOut = document.getElementById('log-in-out');
+  const fav = document.getElementById('fav-btn');
+  const cat = document.getElementById('cat-btn');
+  const cart = document.getElementById('cart-btn');
+  const profile = document.getElementById('profile-btn');
+
+  if (localStorage.getItem('password')) {
+    profile.style.display = 'block';
+    logInOut.innerHTML = 'Log Out';
+    logOut(logInOut);
+    logInOut.removeAttribute('href');
+  } else {
+    profile.style.display = 'none';
+    logInOut.innerHTML = 'Log In';
+    toLogIn([fav, cat, cart]);
+    logInOut.addAttribute('href', 'logIn.html');
+  }
+}
+
+function logOut(logBtn) {
+  if ((logBtn.innerHTML = 'Log Out')) {
+    logBtn.addEventListener('click', () => {
+      localStorage.clear();
+      location.reload();
+    });
+  }
+}
+
+function toLogIn(btns) {
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.removeAttribute('href');
+      location.href = '../logIn.html';
+    });
   });
 }

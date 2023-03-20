@@ -308,9 +308,6 @@ function slideProducts() {
   const slideLeft = document.getElementById('slideLeft');
   const slideRight = document.getElementById('slideRight');
 
-  // let productsContainerWidth =
-  //   productsContainer.firstElementChild.getBoundingClientRect().width;
-
   slideLeft.addEventListener('click', () => {
     productsContainer.scrollLeft -= 250;
   });

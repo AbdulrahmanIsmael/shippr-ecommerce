@@ -11,11 +11,13 @@ header#navbar
     li #[a(href="./cart.html") #[i(class="fa-solid fa-cart-shopping")] #[div My Cart]]
   button.res-show #[i.fa-solid.fa-bars]
   .res-menu
+    div#profile-btn
+      a(href="profile.html") Profile
     div
-      a(href="cat.html") Categories
+      a#cat-btn(href="cat.html") Categories
     div
-      a(href="cart.html") My Cart
+      a#cart-btn(href="cart.html") My Cart
     div
-      a(href="fav.html") Favorites
+      a#fav-btn(href="fav.html") Favorites
     div
-      a(href="logIn.html") Log In
+      a(href="logIn.html", id='log-in-out') Log In

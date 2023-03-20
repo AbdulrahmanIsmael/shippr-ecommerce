@@ -85,6 +85,8 @@ function feedingThePage() {
         </div>
       </section>
     `;
+    document.title = `Shippr | ${productObject.title}`;
+    addToFav(productObject.images[0], productObject.title, productObject.price);
   } else {
     setTimeout(() => {
       location.href = './home.html';
@@ -116,6 +118,21 @@ function changeImgs() {
         productImage.src = e.target.src;
         TargetClass(productImagesItems, e.target.parentElement);
       }
+    }
+  });
+}
+
+//TODO: Add To Favorites
+function addToFav(img, title, price) {
+  const favBtn = document.querySelector('.wishlist-btn');
+  const favs = JSON.parse(localStorage.getItem('favProducts')) || [];
+
+  favBtn.addEventListener('click', () => {
+    const findItem = favs.find(item => item.name === title);
+    if (!findItem) {
+      const newFavs = [...favs, { img, name: title, price: `$${price}` }];
+      localStorage.setItem('favProducts', JSON.stringify(newFavs));
+      console.log('Successfully added item to favorites');
     }
   });
 }

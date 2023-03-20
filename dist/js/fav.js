@@ -18,8 +18,26 @@ function headerFooter() {
   expandMenu();
 }
 
-console.log('hello');
+showFav();
+function showFav() {
+  const favList = document.querySelector('.fav-list');
+  const favs = JSON.parse(localStorage.getItem('favProducts'));
 
-localStorage.setItem('facProducts', [
-  { name: 'mobile', price: '10$', quantity: '2' },
-]);
+  favs.forEach(fav => {
+    favList.innerHTML += `
+      <tr>
+        <td class="product-title"><img src="${fav.img}" alt="">${fav.name}</td>
+        <td>${fav.price}</td>
+        <td>
+          <input type="number" name="quantity" id="qty">
+        </td>
+        <td>
+          <button class="add-btn"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>
+        </td>
+        <td>
+          <button class="remove"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    `;
+  });
+}
