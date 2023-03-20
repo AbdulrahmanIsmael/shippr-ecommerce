@@ -5,14 +5,11 @@ export function openProfileMenu() {
   );
   const profileMenu = document.querySelector('.profile-menu');
 
-  userNameHomePage.parentElement.parentElement.addEventListener(
-    'click',
-    (e) => {
-      e.preventDefault();
-      userNameHomePage.parentElement.removeAttribute('href');
-      profileMenu.classList.toggle('close');
-    }
-  );
+  userNameHomePage.parentElement.parentElement.addEventListener('click', e => {
+    e.preventDefault();
+    userNameHomePage.parentElement.removeAttribute('href');
+    profileMenu.classList.toggle('close');
+  });
 }
 
 export function logOutProfile() {
@@ -55,7 +52,7 @@ export function profileOfUser() {
 
 //TODO: Setting active class to links
 export function removeActive(links) {
-  links.forEach((Link) => {
+  links.forEach(Link => {
     Link.classList.remove('activeNav');
   });
 }
@@ -64,11 +61,31 @@ export function activeNavLinks() {
   const headerLinks = document.querySelectorAll('.nav-links > li > a');
 
   const docTitle = document.title.toLowerCase();
-  headerLinks.forEach((link) => {
+  headerLinks.forEach(link => {
     const linkPattern = new RegExp(link.innerText.toLowerCase(), 'g');
     if (linkPattern.test(docTitle)) {
       removeActive(headerLinks);
       link.classList.add('activeNav');
+    }
+  });
+}
+
+// TODO: Responsive menu setup
+export function expandMenu() {
+  const showIcon = document.querySelector('.res-show');
+  const showMenu = document.querySelector('.res-menu');
+
+  showIcon.addEventListener('click', () => {
+    if (!showMenu.classList.contains('show-res-menu')) {
+      showMenu.style.display = 'block';
+      setTimeout(() => {
+        showMenu.classList.add('show-res-menu');
+      }, 100);
+    } else {
+      showMenu.classList.remove('show-res-menu');
+      setTimeout(() => {
+        showMenu.style.display = 'none';
+      }, 400);
     }
   });
 }

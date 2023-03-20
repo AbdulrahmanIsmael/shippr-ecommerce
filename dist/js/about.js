@@ -6,6 +6,7 @@ import {
   profileOfUser,
   removeActive,
   activeNavLinks,
+  expandMenu,
 } from './header.js';
 
 headerFooter();
@@ -14,4 +15,5 @@ function headerFooter() {
   profileOfUser();
   activeNavLinks();
   copyrightyear();
+  expandMenu();
 }

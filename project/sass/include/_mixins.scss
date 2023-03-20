@@ -10,3 +10,15 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+@mixin min-media($width) {
+  @media (min-width: #{$width}) {
+    @content;
+  }
+}
+
+@mixin max-media($width) {
+  @media (max-width: #{$width}) {
+    @content;
+  }
+}

@@ -1,5 +1,7 @@
 import { copyrightyear } from './footer.js';
+import { expandMenu } from './header.js';
 copyrightyear();
+expandMenu();
 
 // Define DOM Nodes
 const registerBtn = document.getElementById('login-btn');
@@ -9,10 +11,9 @@ const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirm-password');
 
 //TODO: password input visibility system
-passwordVisible();
 function passwordVisible() {
   const showPassword = document.getElementById('show');
-  showPassword.addEventListener('click', (e) => {
+  showPassword.addEventListener('click', e => {
     if (e.target.checked) {
       password.type = 'text';
       confirmPassword.type = 'text';
@@ -22,6 +23,7 @@ function passwordVisible() {
     }
   });
 }
+passwordVisible();
 
 //TODO: Check if all the inputs are filled
 inputsCheck();
@@ -35,7 +37,7 @@ function navigateToLogIn() {
 
 function checkInputsStatus(inputs) {
   let filled = true;
-  inputs.forEach((input) => {
+  inputs.forEach(input => {
     if (!input.value) {
       filled = false;
     }
@@ -49,7 +51,7 @@ function inputsCheck() {
   );
   const errorMsg = document.querySelector('.error-form');
 
-  registerBtn.addEventListener('click', (e) => {
+  registerBtn.addEventListener('click', e => {
     e.preventDefault();
 
     if (!checkInputsStatus(inputs)) {
@@ -82,7 +84,7 @@ function checkUsername() {
   registerBtn.addEventListener('click', () => {
     const usernameValue = username.value.split('');
     let numbersUserName = 0;
-    usernameValue.forEach((item) => {
+    usernameValue.forEach(item => {
       if (!isNaN(parseInt(item))) {
         numbersUserName++;
       }

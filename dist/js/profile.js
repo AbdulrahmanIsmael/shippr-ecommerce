@@ -6,6 +6,7 @@ import {
   profileOfUser,
   removeActive,
   activeNavLinks,
+  expandMenu,
 } from './header.js';
 
 headerFooter();
@@ -14,6 +15,7 @@ function headerFooter() {
   profileOfUser();
   activeNavLinks();
   copyrightyear();
+  expandMenu();
 }
 
 //TODO: set click event on the tabs buttons
@@ -21,7 +23,7 @@ tabBtn();
 
 function addHideContent(target) {
   const tabsContent = document.querySelectorAll('.tab-content > div');
-  tabsContent.forEach((tab) => {
+  tabsContent.forEach(tab => {
     tab.classList.remove('show-tab');
     setTimeout(() => {
       tab.classList.add('hide-content');
@@ -37,7 +39,7 @@ function addHideContent(target) {
 
 function addActiveClass(target) {
   const tabBtns = document.querySelectorAll('.tabs > div');
-  tabBtns.forEach((btn) => {
+  tabBtns.forEach(btn => {
     btn.classList.remove('active-tab');
   });
   target.classList.add('active-tab');
@@ -46,9 +48,9 @@ function addActiveClass(target) {
 function tabBtn() {
   const tabsContent = document.querySelectorAll('.tab-content > div');
   const tabBtns = document.querySelectorAll('.tabs > div');
-  tabBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      tabsContent.forEach((tab) => {
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      tabsContent.forEach(tab => {
         if (e.target.dataset.content === tab.dataset.content) {
           addActiveClass(e.target);
           addHideContent(tab);
@@ -158,7 +160,7 @@ function addAddressForm() {
     closeAddressForm(addressForm);
   });
 
-  addBtn.addEventListener('click', (e) => {
+  addBtn.addEventListener('click', e => {
     e.preventDefault();
     if (formValidation() && localStorage.getItem('name')) {
       formValidation();
@@ -187,7 +189,7 @@ function changePassword() {
   const xmarkPassword = document.getElementById('xmark-password');
   const overlay = document.querySelector('.overlay');
 
-  updatePasswordBtn.addEventListener('click', (e) => {
+  updatePasswordBtn.addEventListener('click', e => {
     e.preventDefault();
     if (!updatePassword.classList.contains('show')) {
       overlay.style.display = 'block';
@@ -226,11 +228,11 @@ function validateUsername() {
   );
   const newUsername = document.getElementById('new-username');
 
-  updateUsernameBtn.addEventListener('click', (e) => {
+  updateUsernameBtn.addEventListener('click', e => {
     e.preventDefault();
     const newUsernameValue = newUsername.value.split('');
     let numbersUserName = 0;
-    newUsernameValue.forEach((item) => {
+    newUsernameValue.forEach(item => {
       if (!isNaN(parseInt(item))) {
         numbersUserName++;
       }
@@ -264,7 +266,7 @@ function emailCheck() {
   const newEmail = document.getElementById('new-email');
   const updateEmailBtn = document.querySelector('button.update-email-btn');
   const emailPattern = /\w+@[a-z]+\.[a-z]{2,3}/;
-  updateEmailBtn.addEventListener('click', (e) => {
+  updateEmailBtn.addEventListener('click', e => {
     e.preventDefault();
 
     if (!newEmail.value.match(emailPattern)) {
@@ -359,7 +361,7 @@ function changePasswordProcess() {
   const confirmNewPassword = document.getElementById('confirm-new-password');
   const changePasswordBtn = document.getElementById('change-password');
 
-  changePasswordBtn.addEventListener('click', (e) => {
+  changePasswordBtn.addEventListener('click', e => {
     e.preventDefault();
 
     changingPasswordValidation(

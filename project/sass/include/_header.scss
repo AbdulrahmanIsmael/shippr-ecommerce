@@ -1,3 +1,5 @@
+@import './mixins';
+
 #navbar {
   position: relative;
   top: 0;
@@ -9,6 +11,13 @@
   align-items: center;
   justify-content: space-evenly;
   padding: 15px 0;
+  isolation: isolate;
+  @include max-media(768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 20px;
+  }
   h1 {
     a {
       text-decoration: none;
@@ -22,6 +31,9 @@
   .nav-links {
     color: #fff;
     display: flex;
+    @include max-media(768px) {
+      display: none;
+    }
     li {
       padding: 0 20px;
 
@@ -46,7 +58,9 @@
 
   .nav-icons {
     display: flex;
-
+    @include max-media(768px) {
+      display: none;
+    }
     li {
       cursor: pointer;
       display: flex;
@@ -79,6 +93,60 @@
         border-right: 2px solid #fff;
         padding: 0 10px;
         margin: 0 10px;
+      }
+    }
+  }
+
+  .res-show {
+    cursor: pointer;
+    display: none;
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+    i {
+      font-size: 27px;
+    }
+    @include max-media(768px) {
+      display: block;
+    }
+  }
+
+  .res-menu {
+    display: none;
+    transition: 0.25s ease-in;
+    transform: translateY(-200%);
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    div {
+      padding-block: 15px;
+      border-bottom: 1px solid #666;
+      text-align: center;
+      width: 100%;
+      &:is(:nth-of-type(1), :nth-of-type(2)) {
+        padding-bottom: 15px;
+      }
+
+      a {
+        transition: 0.25s ease;
+        color: #fff;
+        font-size: 18px;
+      }
+
+      &:active {
+        a {
+          padding-left: 20px;
+        }
+      }
+    }
+
+    @include max-media(768px) {
+      &.show-res-menu {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
   }

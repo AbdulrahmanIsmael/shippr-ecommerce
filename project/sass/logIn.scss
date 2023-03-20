@@ -29,7 +29,13 @@
       letter-spacing: 2px;
       color: #333;
     }
+
+    @include max-media(768px) {
+      justify-content: center !important;
+      align-items: center !important;
+    }
   }
+
   #form {
     background-image: url('../images/path.jpg');
     background-repeat: no-repeat;
@@ -38,7 +44,7 @@
     font-family: 'Courgette', cursive;
     margin-bottom: 30px;
     height: 430px;
-    width: 500px;
+    width: 40vw;
     .login-form {
       @include custom-flex(column, center, flex-start);
       padding: 30px;
@@ -125,6 +131,10 @@
           color: #ddd;
         }
       }
+    }
+
+    @include max-media(1000px) {
+      width: 70vw;
     }
   }
 }

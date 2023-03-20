@@ -6,6 +6,7 @@ import {
   profileOfUser,
   removeActive,
   activeNavLinks,
+  expandMenu,
 } from './header.js';
 
 headerFooter();
@@ -14,6 +15,7 @@ function headerFooter() {
   profileOfUser();
   activeNavLinks();
   copyrightyear();
+  expandMenu();
 }
 
 //TODO: feed the page with the product information
@@ -97,7 +99,7 @@ feedingThePage();
 changeImgs();
 
 function TargetClass(items, target) {
-  items.forEach((item) => {
+  items.forEach(item => {
     item.classList.remove('targeted');
   });
 
@@ -106,7 +108,7 @@ function TargetClass(items, target) {
 
 function changeImgs() {
   const product = document.getElementById('product');
-  product.addEventListener('click', (e) => {
+  product.addEventListener('click', e => {
     if (e.target.classList.contains('image-nav')) {
       const productImage = document.getElementById('product-image');
       const productImagesItems = document.querySelectorAll('.images-nav ul li');

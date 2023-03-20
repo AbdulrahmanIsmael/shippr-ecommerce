@@ -1,5 +1,7 @@
 import { copyrightyear } from './footer.js';
+import { expandMenu } from './header.js';
 copyrightyear();
+expandMenu();
 
 // Define DOM Nodes
 const password = document.getElementById('password');
@@ -9,7 +11,7 @@ passwordVisible();
 function passwordVisible() {
   const showPassword = document.getElementById('show');
 
-  showPassword.addEventListener('click', (e) => {
+  showPassword.addEventListener('click', e => {
     if (e.target.checked) {
       password.type = 'text';
     } else if (!e.target.checked) {
@@ -29,7 +31,7 @@ function openProfile() {
 
 function checkInputsStatus(inputs) {
   let filled = true;
-  inputs.forEach((input) => {
+  inputs.forEach(input => {
     if (!input.value) {
       filled = false;
     }
@@ -44,7 +46,7 @@ function inputsCheck() {
   const loginBtn = document.getElementById('login-btn');
   const errorMsg = document.querySelector('.error-form');
 
-  loginBtn.addEventListener('click', (e) => {
+  loginBtn.addEventListener('click', e => {
     e.preventDefault();
 
     if (!checkInputsStatus(inputs)) {

@@ -6,6 +6,7 @@ import {
   profileOfUser,
   removeActive,
   activeNavLinks,
+  expandMenu,
 } from './header.js';
 
 headerFooter();
@@ -14,6 +15,7 @@ function headerFooter() {
   profileOfUser();
   activeNavLinks();
   copyrightyear();
+  expandMenu();
 }
 
 //TODO: expand instructions
@@ -23,8 +25,8 @@ expandInstruction();
 function expandInstruction() {
   const instructions = document.querySelectorAll('.instruction > div');
 
-  instructions.forEach((ins) => {
-    ins.addEventListener('click', (e) => {
+  instructions.forEach(ins => {
+    ins.addEventListener('click', e => {
       const row = e.target.firstElementChild;
       const textDetailed = e.target.nextElementSibling;
       row.classList.toggle('open');

@@ -7,6 +7,7 @@ import {
   profileOfUser,
   removeActive,
   activeNavLinks,
+  expandMenu,
 } from './header.js';
 
 headerFooter();
@@ -15,6 +16,7 @@ function headerFooter() {
   profileOfUser();
   activeNavLinks();
   copyrightyear();
+  expandMenu();
 }
 
 // Defining DOM Nodes
@@ -42,11 +44,11 @@ navShowcases();
 function showcaseRelated() {
   const scs = document.querySelectorAll('.sc');
 
-  scs.forEach((sc) => {
-    scNavBtns.forEach((btn) => {
+  scs.forEach(sc => {
+    scNavBtns.forEach(btn => {
       if (btn.classList.contains('active')) {
         if (btn.innerText === sc.dataset.sc) {
-          scs.forEach((s) => {
+          scs.forEach(s => {
             s.classList.remove('show');
           });
 
@@ -58,11 +60,11 @@ function showcaseRelated() {
 }
 
 function navShowcases() {
-  scNavBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
+  scNavBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
       e.preventDefault();
       if (!e.target.classList.contains('active')) {
-        scNavBtns.forEach((b) => {
+        scNavBtns.forEach(b => {
           b.classList.remove('active');
         });
 
@@ -80,7 +82,7 @@ const switchInterval = setInterval(() => {
 }, 15000);
 
 function checkActiveShowcase() {
-  scNavBtns.forEach((btn) => {
+  scNavBtns.forEach(btn => {
     btn.classList.remove('active');
   });
 }
@@ -157,11 +159,11 @@ newArrivalFetch();
 export function newArrivalFetch() {
   const products = fetchProducts();
   productsContainer.innerHTML = '';
-  products.then((products) => {
+  products.then(products => {
     if (!localStorage.getItem('products')) {
       localStorage.setItem('products', JSON.stringify(products.products));
     }
-    products.products.forEach((product) => {
+    products.products.forEach(product => {
       if (product.stock <= 50) {
         productsContainer.innerHTML += `
               <div class="product">
@@ -198,8 +200,8 @@ export function newArrivalFetch() {
 function mostRatedFetch() {
   const products = fetchProducts();
   productsContainer.innerHTML = '';
-  products.then((products) => {
-    products.products.forEach((product) => {
+  products.then(products => {
+    products.products.forEach(product => {
       if (+product.rating >= 4) {
         productsContainer.innerHTML += `
               <div class="product">
@@ -236,10 +238,10 @@ function mostRatedFetch() {
 function bestOffersFetch() {
   const products = fetchProducts();
   productsContainer.innerHTML = '';
-  products.then((products) => {
+  products.then(products => {
     let allProducts = products.products;
     allProducts.reverse();
-    allProducts.forEach((product) => {
+    allProducts.forEach(product => {
       if (+product.discountPercentage >= 10) {
         productsContainer.innerHTML += `
               <div class="product">
@@ -278,10 +280,10 @@ mostLisSwitch();
 function mostLisSwitch() {
   const mostLis = document.querySelectorAll('#most-nav > ul > li');
 
-  mostLis.forEach((li) => {
-    li.addEventListener('click', (e) => {
+  mostLis.forEach(li => {
+    li.addEventListener('click', e => {
       if (!li.classList.contains('active')) {
-        mostLis.forEach((l) => {
+        mostLis.forEach(l => {
           l.classList.remove('active');
         });
         li.classList.add('active');
@@ -306,14 +308,15 @@ function slideProducts() {
   const slideLeft = document.getElementById('slideLeft');
   const slideRight = document.getElementById('slideRight');
 
-  let productsContainerWidth = productsContainer.getBoundingClientRect().width;
+  // let productsContainerWidth =
+  //   productsContainer.firstElementChild.getBoundingClientRect().width;
 
   slideLeft.addEventListener('click', () => {
-    productsContainer.scrollLeft -= productsContainerWidth;
+    productsContainer.scrollLeft -= 250;
   });
 
   slideRight.addEventListener('click', () => {
-    productsContainer.scrollLeft += productsContainerWidth;
+    productsContainer.scrollLeft += 250;
   });
 }
 
@@ -323,8 +326,8 @@ expandReview();
 function expandReview() {
   const reviewBtns = document.querySelectorAll('.reviewer-personal-info');
 
-  reviewBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
+  reviewBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
       const reviewRow = e.target.lastElementChild;
       const reviewInfo = e.target.nextElementSibling;
       reviewRow.classList.toggle('open');
@@ -342,7 +345,7 @@ productPage();
 
 function findProductFromStorage(title) {
   const productsStorage = JSON.parse(localStorage.getItem('products'));
-  productsStorage.forEach((product) => {
+  productsStorage.forEach(product => {
     if (product.title === title) {
       localStorage.setItem('product', JSON.stringify(product));
     }
@@ -350,7 +353,7 @@ function findProductFromStorage(title) {
 }
 
 function productPage() {
-  productsContainer.addEventListener('click', (e) => {
+  productsContainer.addEventListener('click', e => {
     const product = e.target.parentElement;
     if (product.classList.contains('product-image')) {
       //* uncomment that after finishing the functionality
@@ -372,7 +375,7 @@ function productPage() {
 userStatus();
 
 function checkUserStatus(btns, hrefLink) {
-  btns.forEach((btn) => {
+  btns.forEach(btn => {
     btn.addEventListener('click', () => {
       if (!localStorage.getItem('username')) {
         location.href = './logIn.html';

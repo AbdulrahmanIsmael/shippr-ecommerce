@@ -49,11 +49,23 @@
               font-size: 50px;
               color: $main-color;
               width: 500px;
+
+              @include max-media(768px) {
+                font-size: 30px;
+              }
             }
 
             p {
               font-family: 'Sevillana', cursive;
               font-size: 35px;
+
+              @include max-media(768px) {
+                font-size: 25px;
+              }
+            }
+
+            @include max-media(768px) {
+              text-align: center;
             }
           }
 
@@ -70,6 +82,17 @@
             &:hover {
               background-color: #000;
             }
+
+            @include max-media(768px) {
+              font-size: 16px;
+              padding: 10px 20px;
+            }
+          }
+
+          @include max-media(768px) {
+            @include custom-flex(column, center, center);
+            gap: 20px;
+            padding-left: 0;
           }
         }
       }
@@ -120,6 +143,15 @@
             left: 0;
           }
         }
+
+        @include max-media(768px) {
+          font-size: 18px;
+        }
+      }
+
+      @include max-media(768px) {
+        bottom: 10%;
+        right: 10px;
       }
     }
   }
@@ -289,6 +321,18 @@
         &::-webkit-scrollbar {
           display: none;
         }
+
+        @include max-media(1200px) {
+          width: 720px;
+        }
+
+        @include max-media(900px) {
+          width: 480px;
+        }
+
+        @include max-media(768px) {
+          width: 240px;
+        }
       }
     }
   }
@@ -453,6 +497,11 @@
         font-weight: 500;
         color: #fff;
         letter-spacing: 2px;
+
+        @include max-media(768px) {
+          text-align: center;
+          font-size: 40px;
+        }
       }
       .ads-btn {
         width: fit-content;
@@ -468,6 +517,10 @@
           background-color: #000;
           color: #fff;
         }
+      }
+
+      @include max-media(768px) {
+        flex-direction: column;
       }
     }
   }
@@ -544,6 +597,11 @@
           }
         }
       }
+
+      @include max-media(768px) {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+      }
     }
   }
 
@@ -571,7 +629,7 @@
     }
 
     .email {
-      margin-top: 20px;
+      margin: 20px 10px 0;
       @include center;
       input[type='email'] {
         transition: 500ms linear;
@@ -579,7 +637,7 @@
         height: 50px;
         padding-left: 10px;
         font-size: 18px;
-        width: 500px;
+        width: 60vw;
         &:focus {
           outline: 0;
           border-bottom: 1px solid #333;
