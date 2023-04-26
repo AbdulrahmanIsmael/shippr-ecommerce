@@ -165,7 +165,7 @@ export function newArrivalFetch() {
     }
     products.products.forEach(product => {
       if (product.stock <= 50) {
-        productsContainer.innerHTML += `
+        const productHTML = `
               <div class="product">
                 <div class="product-image">
                 <img src="${product.images[0]}">
@@ -191,6 +191,8 @@ export function newArrivalFetch() {
                 </div>
               </div>
               `;
+        productsContainer.innerHTML += productHTML;
+        addToCart();
       }
     });
   });
@@ -270,6 +272,50 @@ function bestOffersFetch() {
               </div>
               `;
       }
+    });
+  });
+}
+
+function injectToStorage(product) {
+  const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  cartProducts.push(product);
+  localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+}
+
+function showAddedToCartMsg() {
+  const cartMsg = document.querySelector('.cart-msg');
+
+  cartMsg.classList.add('cart-msg-show');
+
+  setTimeout(() => {
+    cartMsg.classList.remove('cart-msg-show');
+  }, 2000);
+}
+
+function addToCart() {
+  const addToCartBtn = document.querySelectorAll('.cart-btn');
+  addToCartBtn.forEach(btn => {
+    btn.addEventListener('click', e => {
+      const element = e.target;
+      const price = parseInt(
+        element.previousElementSibling.previousElementSibling.textContent
+      );
+      const name =
+        element.previousElementSibling.previousElementSibling
+          .previousElementSibling.textContent;
+      const image =
+        element.parentElement.previousElementSibling.firstElementChild.src;
+      const qty = 1;
+      const productInfo = {
+        name,
+        image,
+        price,
+        qty,
+        total: price,
+      };
+      injectToStorage(productInfo);
+      showAddedToCartMsg();
+      //! optional: change the button style if the product is in the cart
     });
   });
 }

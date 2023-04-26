@@ -39,5 +39,38 @@ function showFav() {
         </td>
       </tr>
     `;
+
+    removeFavItem();
+  });
+}
+
+function removeFavFromStorage(name) {
+  const favs = JSON.parse(localStorage.getItem('favProducts'));
+  const favFiltered = favs.filter(fav => fav.name !== name);
+
+  localStorage.setItem('favProducts', JSON.stringify(favFiltered));
+}
+
+function showRemoveMsg() {
+  const removeMsg = document.querySelector('.remove-msg');
+
+  removeMsg.classList.add('remove-msg-show');
+  setTimeout(() => {
+    removeMsg.classList.remove('remove-msg-show');
+  }, 2000);
+}
+
+function removeFavItem() {
+  const removeBtn = document.querySelectorAll('.remove > .fa-trash');
+
+  removeBtn.forEach(btn => {
+    btn.addEventListener('click', e => {
+      removeFavFromStorage(
+        e.target.parentElement.parentElement.parentElement.firstElementChild
+          .textContent
+      );
+      e.target.parentElement.parentElement.parentElement.remove();
+      showRemoveMsg();
+    });
   });
 }

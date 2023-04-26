@@ -4,21 +4,16 @@ main#cart
     div Home / My Cart
   section#cart-table
     table.cart-list
-      tr.headings
-        th Product Name
-        th Unit Price
-        th Qty
-        th Subtotal
-        th Delete
-      //- tr
-      //-   td.product-title #[img(src="./images/review1.jpg", alt="")] Product Name
-      //-   td 20$
-      //-   td #[input(type="number", name="quantity" , id="qty")]
-      //-   td 40$
-      //-   td #[button.remove #[i.fa-solid.fa-trash]]
+      thead
+        tr.headings
+          th Product Name
+          th Unit Price
+          th Qty
+          th Subtotal
+          th Delete
   .cart-btns
     a.continue-shopping(href="./home.html") #[i.fa-sharp.fa-solid.fa-arrow-left] Continue Shopping
-    button.update-cart Update Cart
+    a.update-cart(href='#') Update Cart
   .procees-shopping
     .coupon
       h3 Discount Codes

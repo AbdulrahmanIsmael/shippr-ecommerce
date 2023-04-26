@@ -37,6 +37,21 @@ function dynamicNavImages() {
   return output;
 }
 
+function checkFav(name) {
+  const favs = JSON.parse(localStorage.getItem('favProducts')) || [];
+  const favName = favs.find(fav => fav.name === name);
+
+  if (favName) {
+    return {
+      btnTitle: 'Added To Favorites',
+      btnIcon: 'check',
+      btnClass: '-added',
+    };
+  }
+
+  return { btnTitle: 'Add To Favorites', btnIcon: 'heart', btnClass: '' };
+}
+
 function feedingThePage() {
   const product = document.getElementById('product');
   if (localStorage.getItem('product')) {
@@ -76,7 +91,11 @@ function feedingThePage() {
           </div>
           <div class="line"></div>
           <div class="product-purchase">
-            <button class="wishlist-btn"><i class="fa-solid fa-heart"></i> Add To Wish list</button>
+            <button class="wishlist-btn${
+              checkFav(productObject.title).btnClass
+            }"><i class="fa-solid fa-${
+      checkFav(productObject.title).btnIcon
+    }"></i> ${checkFav(productObject.title).btnTitle} </button>
             <div class="product-add-cart">
               <input type="number" name="amount" id="product-amount" value="1" min="1">
               <button class="add-cart"><i class="fa-solid fa-cart-plus"></i> Add To Cart</button>
@@ -125,6 +144,7 @@ function changeImgs() {
 //TODO: Add To Favorites
 function addToFav(img, title, price) {
   const favBtn = document.querySelector('.wishlist-btn');
+  const addedMsg = document.querySelector('.added-msg');
   const favs = JSON.parse(localStorage.getItem('favProducts')) || [];
 
   favBtn.addEventListener('click', () => {
@@ -132,7 +152,19 @@ function addToFav(img, title, price) {
     if (!findItem) {
       const newFavs = [...favs, { img, name: title, price: `$${price}` }];
       localStorage.setItem('favProducts', JSON.stringify(newFavs));
-      console.log('Successfully added item to favorites');
+      addedMsg.style.display = 'block';
+
+      setTimeout(() => {
+        addedMsg.classList.add('added-msg-show');
+      }, 100);
+
+      setTimeout(() => {
+        addedMsg.classList.remove('added-msg-show');
+      }, 2000);
+
+      setTimeout(() => {
+        location.reload();
+      }, 2500);
     }
   });
 }

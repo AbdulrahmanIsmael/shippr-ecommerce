@@ -12,7 +12,7 @@
   #cart-welcome {
     @include custom-flex(column);
     width: 100%;
-    background-image: url('../images/path.jpg');
+    background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 60px;
@@ -311,5 +311,22 @@
         }
       }
     }
+  }
+}
+
+.remove-msg {
+  transition: 0.3s ease-in;
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 12%;
+  right: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 18px;
+  transform: translateX(100%);
+  &.remove-msg-show {
+    transform: translateX(0);
   }
 }

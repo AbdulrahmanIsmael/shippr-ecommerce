@@ -19,7 +19,7 @@
   gap: 20px;
   #product-welcome {
     width: 100%;
-    background-image: url('../images/path.jpg');
+    background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 60px;
@@ -181,9 +181,24 @@
           padding: 10px 10px;
           background-color: transparent;
           border: 1px solid #000;
-          color: 3000;
+
           i {
             margin-right: 8px;
+          }
+
+          &-added {
+            background-color: #000;
+            color: #fff;
+            transition: 0.2s ease;
+            font-size: 16px;
+            border-radius: 5px;
+            width: fit-content;
+            padding: 10px 10px;
+            border: 1px solid #000;
+
+            i {
+              margin-right: 8px;
+            }
           }
 
           &:hover {
@@ -240,5 +255,22 @@
     font-size: 18px;
     font-family: 'Cairo', sans-serif;
     padding: 5px 8px;
+  }
+}
+
+.added-msg {
+  transition: 0.3s ease-in;
+  background-color: green;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 12%;
+  right: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 18px;
+  transform: translateX(100%);
+  &.added-msg-show {
+    transform: translateX(0);
   }
 }

@@ -13,7 +13,7 @@
   #about-welcome {
     @include custom-flex(column);
     width: 100%;
-    background-image: url('../images/path.jpg');
+    background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 60px;
@@ -38,7 +38,7 @@
   }
 
   #our-story {
-    background-image: url('../images/path.jpg');
+    background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 75%;
@@ -110,7 +110,7 @@
     @include center;
     flex-direction: column;
     width: 100%;
-    background-image: url('../images/path.jpg');
+    background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 30px 95px;

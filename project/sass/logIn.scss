@@ -11,7 +11,7 @@
   #login-welcome {
     @include custom-flex(column);
     width: 100%;
-    background-image: url('../images/path.jpg');
+    background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 60px;
@@ -37,7 +37,7 @@
   }
 
   #form {
-    background-image: url('../images/path.jpg');
+    background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
