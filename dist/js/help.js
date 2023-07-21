@@ -21,21 +21,25 @@ function headerFooter() {
 //TODO: expand instructions
 expandInstruction();
 
-//! need to be modified to expand the instruction box even in the case of clicking on the text...
 function expandInstruction() {
-  const instructions = document.querySelectorAll('.instruction > div');
+  const instructions = document.querySelectorAll('.instruction');
 
   instructions.forEach(ins => {
     ins.addEventListener('click', e => {
-      const row = e.target.firstElementChild;
-      const textDetailed = e.target.nextElementSibling;
-      row.classList.toggle('open');
-      if (row.classList.contains('open')) {
-        textDetailed.classList.remove('closeReview');
-        e.target.style.borderBottom = '0';
-      } else {
-        textDetailed.classList.add('closeReview');
-        e.target.style.borderBottom = '1px solid #888';
+      if (e.target.parentElement.classList.contains('instruction')) {
+        if (e.target.parentElement.nextElementSibling.style.maxHeight) {
+          e.target.parentElement.nextElementSibling.style.maxHeight = null;
+          setTimeout(() => {
+            e.target.parentElement.nextElementSibling.style.borderBottom = '0';
+          }, 400);
+        } else {
+          e.target.parentElement.nextElementSibling.style.border =
+            '1px solid #888';
+          e.target.parentElement.nextElementSibling.style.borderTop = '0';
+          e.target.parentElement.nextElementSibling.style.maxHeight = `${e.target.parentElement.nextElementSibling.scrollHeight}px`;
+        }
+        const row = e.target.firstElementChild;
+        row.classList.toggle('open');
       }
     });
   });

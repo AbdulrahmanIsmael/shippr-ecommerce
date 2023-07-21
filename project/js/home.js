@@ -374,11 +374,22 @@ function expandReview() {
       const reviewRow = e.target.lastElementChild;
       const reviewInfo = e.target.nextElementSibling;
       reviewRow.classList.toggle('open');
-      if (reviewRow.classList.contains('open')) {
-        reviewInfo.classList.remove('closeReview');
+
+      if (reviewInfo.style.maxHeight) {
+        reviewInfo.style.maxHeight = null;
+        setTimeout(() => {
+          reviewInfo.style.borderBottom = '0';
+        }, 400);
       } else {
-        reviewInfo.classList.add('closeReview');
+        reviewInfo.style.border = '1px solid #888';
+        reviewInfo.style.borderTop = '0';
+        reviewInfo.style.maxHeight = `${reviewInfo.scrollHeight}px`;
       }
+      // if (reviewRow.classList.contains('open')) {
+      //   reviewInfo.classList.remove('closeReview');
+      // } else {
+      //   reviewInfo.classList.add('closeReview');
+      // }
     });
   });
 }
