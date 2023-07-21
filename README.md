@@ -18,11 +18,10 @@ My e-commerce website is a dynamic platform for buying and selling a wide range 
 ---
 
 ## 🚀 About Me
-
 I'm a front End developer, I have the ability to build interactive, responsive and Organized Websites.
 
-## 🛠 Skills
 
+## 🛠 Skills
 - HTML
 - CSS
 - JavaScript
@@ -31,8 +30,9 @@ I'm a front End developer, I have the ability to build interactive, responsive a
 - GulpJs
 - BootStrap
 - React.js
-- React Hooks
+- React ecosystems (React Router - React Redux)
+- Redux | Redux Toolkit 
+
 
 ## 🔗 Links
-
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdulrahman-mohammed22/)
