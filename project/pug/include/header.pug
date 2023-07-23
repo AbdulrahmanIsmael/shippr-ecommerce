@@ -2,13 +2,13 @@ header#navbar
   h1 #[a(href="./home.html") Shippr]
   ul.nav-links
     li #[a.activeNav(href="./home.html") Home]
-    li #[a(href="./cat.html") Categories]
+    li #[a#cat-button(href="./cat.html") Categories]
     li #[a(href="./about.html") About]
     li #[a(href="./help.html") Help]
   ul.nav-icons
     li #[a(href="./logIn.html")  #[i(class="fa-solid fa-user")] #[div Log In]]
-    li #[a(href="./fav.html") #[i(class="fa-solid fa-heart")] #[div Favorites]]
-    li #[a(href="./cart.html") #[i(class="fa-solid fa-cart-shopping")] #[div My Cart]]
+    li #[a#fav-button(href="./fav.html") #[i(class="fa-solid fa-heart")] #[div Favorites]]
+    li #[a#cart-button(href="./cart.html") #[i(class="fa-solid fa-cart-shopping")] #[div My Cart]]
   button.res-show #[i.fa-solid.fa-bars]
   .res-menu
     div#profile-btn

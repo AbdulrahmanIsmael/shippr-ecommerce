@@ -91,27 +91,29 @@ export function expandMenu() {
   });
 }
 
-function logInOut() {
-  const logInOut = document.getElementById('log-in-out');
+export function logInOut() {
+  const loggingInOut = document.getElementById('log-in-out');
   const fav = document.getElementById('fav-btn');
+  const favBtn = document.getElementById('fav-button');
+  const cartBtn = document.getElementById('cart-button');
+  const catBtn = document.getElementById('cat-button');
   const cat = document.getElementById('cat-btn');
   const cart = document.getElementById('cart-btn');
   const profile = document.getElementById('profile-btn');
 
   if (localStorage.getItem('password')) {
     profile.style.display = 'block';
-    logInOut.innerHTML = 'Log Out';
-    logOut(logInOut);
-    logInOut.removeAttribute('href');
+    loggingInOut.innerHTML = 'Log Out';
+    logOut(loggingInOut);
+    loggingInOut.removeAttribute('href');
   } else {
     profile.style.display = 'none';
-    logInOut.innerHTML = 'Log In';
-    toLogIn([fav, cat, cart]);
-    logInOut.addAttribute('href', 'logIn.html');
+    loggingInOut.innerHTML = 'Log In';
+    toLogIn([fav, cat, cart, favBtn, cartBtn, catBtn, loggingInOut]);
   }
 }
 
-function logOut(logBtn) {
+export function logOut(logBtn) {
   if ((logBtn.innerHTML = 'Log Out')) {
     logBtn.addEventListener('click', () => {
       localStorage.clear();
@@ -120,7 +122,7 @@ function logOut(logBtn) {
   }
 }
 
-function toLogIn(btns) {
+export function toLogIn(btns) {
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       btn.removeAttribute('href');

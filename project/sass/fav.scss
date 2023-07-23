@@ -33,6 +33,10 @@
   }
 
   #fav-table {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .fav-list {
       border-collapse: collapse;
       tr {
@@ -44,12 +48,36 @@
           font-weight: 600;
           padding: 5px 50px;
           color: #555;
+
+          @media (width<=822px) {
+            font-size: 14px;
+            padding: 5px 20px;
+          }
+
+          @media (width<=460px) {
+            font-size: 12px;
+            padding: 5px 7px;
+          }
         }
 
         td {
           text-align: center;
           padding: 30px 60px 10px;
           font-family: 'Cairo', sans-serif;
+
+          &:nth-of-type(2) {
+            @media (width<=822px) {
+              font-size: 12px;
+            }
+          }
+
+          @media (width<=822px) {
+            padding: 30px 20px 10px;
+          }
+
+          @media (width<=460px) {
+            padding: 30px 7px 10px;
+          }
 
           #qty {
             transition: 0.2s ease-in;
@@ -73,11 +101,24 @@
             justify-content: space-between;
             align-items: center;
             gap: 20px;
+
+            @media (width<=822px) {
+              font-size: 12px;
+            }
+
+            @media (width <=1000px) {
+              gap: 5px;
+            }
             img {
               width: 63px;
               height: 70px;
               border-radius: 10px;
               margin-right: 20px;
+
+              @media (width <=822px) {
+                width: 40px;
+                height: 60px;
+              }
             }
           }
 
@@ -90,6 +131,15 @@
             padding: 8px 10px;
             font-size: 15px;
             transition: 0.3s ease;
+
+            @media (width<1000px) {
+              font-size: 12px;
+              padding: 5px 7px;
+            }
+
+            @media (width<=460px) {
+              font-size: 8px;
+            }
 
             &:focus {
               outline: none;

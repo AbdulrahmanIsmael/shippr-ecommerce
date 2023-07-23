@@ -8,6 +8,9 @@ import {
   removeActive,
   activeNavLinks,
   expandMenu,
+  logOut,
+  toLogIn,
+  logInOut,
 } from './header.js';
 
 headerFooter();
@@ -17,6 +20,7 @@ function headerFooter() {
   activeNavLinks();
   copyrightyear();
   expandMenu();
+  logInOut();
 }
 
 // Defining DOM Nodes
@@ -231,6 +235,7 @@ function mostRatedFetch() {
                 </div>
               </div>
               `;
+        addToCart();
       }
     });
   });
@@ -271,6 +276,7 @@ function bestOffersFetch() {
                 </div>
               </div>
               `;
+        addToCart();
       }
     });
   });
@@ -296,16 +302,16 @@ function addToCart() {
   const addToCartBtn = document.querySelectorAll('.cart-btn');
   addToCartBtn.forEach(btn => {
     btn.addEventListener('click', e => {
-      const element = e.target;
-      const price = parseInt(
-        element.previousElementSibling.previousElementSibling.textContent
-      );
-      const name =
-        element.previousElementSibling.previousElementSibling
-          .previousElementSibling.textContent;
-      const image =
-        element.parentElement.previousElementSibling.firstElementChild.src;
-      const qty = 1;
+      const element = e.target,
+        price = parseInt(
+          element.previousElementSibling.previousElementSibling.textContent
+        ),
+        name =
+          element.previousElementSibling.previousElementSibling
+            .previousElementSibling.textContent,
+        image =
+          element.parentElement.previousElementSibling.firstElementChild.src,
+        qty = 1;
       const productInfo = {
         name,
         image,
@@ -315,7 +321,6 @@ function addToCart() {
       };
       injectToStorage(productInfo);
       showAddedToCartMsg();
-      //! optional: change the button style if the product is in the cart
     });
   });
 }
@@ -385,11 +390,6 @@ function expandReview() {
         reviewInfo.style.borderTop = '0';
         reviewInfo.style.maxHeight = `${reviewInfo.scrollHeight}px`;
       }
-      // if (reviewRow.classList.contains('open')) {
-      //   reviewInfo.classList.remove('closeReview');
-      // } else {
-      //   reviewInfo.classList.add('closeReview');
-      // }
     });
   });
 }
@@ -410,7 +410,6 @@ function productPage() {
   productsContainer.addEventListener('click', e => {
     const product = e.target.parentElement;
     if (product.classList.contains('product-image')) {
-      //* uncomment that after finishing the functionality
       // check if the user is signed in or no
       if (!localStorage.getItem('username')) {
         location.href = './logIn.html';
@@ -420,7 +419,6 @@ function productPage() {
         findProductFromStorage(productTitle);
         location.href = './product.html';
       }
-      //* uncomment that after finishing the functionality
     }
   });
 }
@@ -444,15 +442,10 @@ function userStatus() {
   const shopBtns = document.querySelectorAll('.sc-btn');
   const adsBtns = document.querySelectorAll('.ads-btn');
   const cartBtns = document.querySelectorAll('.cart-btn');
-  const tableLinks = document.querySelectorAll(
-    '#footer > .resources > table a'
-  );
   const articlesLinks = document.querySelectorAll('#news > .newsArticles a');
 
-  //! Remember to modify the links here later (hrefLink)
-  checkUserStatus(shopBtns, './cat.html');
-  checkUserStatus(adsBtns, './cat.html');
-  checkUserStatus(cartBtns, './home.html');
-  checkUserStatus(tableLinks, './home.html');
-  checkUserStatus(articlesLinks, './cat.html');
+  checkUserStatus(shopBtns, './home.html');
+  checkUserStatus(adsBtns, './home.html');
+  checkUserStatus(cartBtns, './cart.html');
+  checkUserStatus(articlesLinks, './home.html');
 }

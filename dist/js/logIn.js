@@ -1,7 +1,8 @@
 import { copyrightyear } from './footer.js';
-import { expandMenu } from './header.js';
+import { expandMenu, logOut, toLogIn, logInOut } from './header.js';
 copyrightyear();
 expandMenu();
+logInOut();
 
 // Define DOM Nodes
 const password = document.getElementById('password');

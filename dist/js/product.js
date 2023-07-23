@@ -7,6 +7,9 @@ import {
   removeActive,
   activeNavLinks,
   expandMenu,
+  logOut,
+  toLogIn,
+  logInOut,
 } from './header.js';
 
 headerFooter();
@@ -16,6 +19,7 @@ function headerFooter() {
   activeNavLinks();
   copyrightyear();
   expandMenu();
+  logInOut();
 }
 
 //TODO: feed the page with the product information
@@ -105,6 +109,7 @@ function feedingThePage() {
       </section>
     `;
     document.title = `Shippr | ${productObject.title}`;
+    addToCart();
     addToFav(productObject.images[0], productObject.title, productObject.price);
   } else {
     setTimeout(() => {
@@ -166,5 +171,46 @@ function addToFav(img, title, price) {
         location.reload();
       }, 2500);
     }
+  });
+}
+
+//TODO: Add Product to the cart
+function showCartMsg() {
+  const cartMsg = document.querySelector('.cart-msg');
+
+  cartMsg.classList.add('cart-msg-show');
+
+  setTimeout(() => {
+    cartMsg.classList.remove('cart-msg-show');
+  }, 2000);
+}
+
+function injectToStorage(product) {
+  const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  cartProducts.push(product);
+  localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+}
+
+function addToCart() {
+  const addBtn = document.querySelector('.add-cart');
+
+  addBtn.addEventListener('click', e => {
+    // const element = e.target;
+    const name = document.querySelector('.title').textContent,
+      image = document.getElementById('product-image').src,
+      price = parseInt(
+        document.querySelector('.price > span:first-child').textContent
+      ),
+      qty = document.getElementById('product-amount').value || 1;
+
+    const productInfo = {
+      name,
+      price,
+      image,
+      qty,
+      total: +price * +qty,
+    };
+    showCartMsg();
+    injectToStorage(productInfo);
   });
 }

@@ -7,6 +7,9 @@ import {
   removeActive,
   activeNavLinks,
   expandMenu,
+  logOut,
+  toLogIn,
+  logInOut,
 } from './header.js';
 
 headerFooter();
@@ -16,6 +19,7 @@ function headerFooter() {
   activeNavLinks();
   copyrightyear();
   expandMenu();
+  logInOut();
 }
 
 //TODO: expand instructions

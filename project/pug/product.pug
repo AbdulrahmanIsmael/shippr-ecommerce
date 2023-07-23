@@ -10,10 +10,11 @@ html(lang="en")
     title Shippr | Product Name
   body
     include ./include/header.pug
-    include ./include/mainProduct.pug
+    main#product
     include ./include/footer.pug
     include ./include/profileLogOut.pug
     .added-msg The Product is added to Favorites
+    .cart-msg Added To Cart
     |
     |
     script(type="module", src="./js/product.js")

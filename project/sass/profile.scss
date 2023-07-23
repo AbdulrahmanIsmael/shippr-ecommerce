@@ -34,7 +34,7 @@
   border: 1px solid #888;
   width: 500px;
   padding: 20px 15px;
-  position: absolute;
+  position: fixed;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -150%);
@@ -43,6 +43,10 @@
   z-index: 100005;
   gap: 15px;
   transition: 0.3s ease-in;
+
+  @media (width <= 540px) {
+    width: 100vw;
+  }
 
   > div {
     @include custom-flex(initial, space-between, center);
@@ -253,7 +257,7 @@
 }
 
 #profile {
-  height: 80vh;
+  min-height: 80vh;
   #profile-welcome {
     @include custom-flex(column);
     width: 100%;
@@ -283,12 +287,20 @@
     width: 100%;
     gap: 20px;
     padding: 0 200px;
+
+    @media (width <= 1000px) {
+      padding: 0 20px;
+    }
+
+    @media (width <= 600px) {
+      @include custom-flex(column);
+    }
     .tabs {
       @include custom-flex(column);
-      height: 140px;
+      min-height: 140px;
       border: 1px solid #888;
       div {
-        height: calc(100% / 3);
+        min-height: calc(100% / 3);
         transition: 300ms ease;
         cursor: pointer;
         font-family: 'Roboto Condensed', sans-serif;
@@ -338,6 +350,11 @@
           @include custom-flex(initial, space-between);
           flex-wrap: wrap;
           gap: 20px;
+
+          @media (width <= 400px) {
+            @include custom-flex(initial);
+          }
+
           > h2 {
             font-family: 'Roboto Condensed', sans-serif;
             font-size: 14;
@@ -353,6 +370,11 @@
             border-radius: 5px;
             transition: 200ms ease-in;
             border: 0;
+
+            @media (width <= 400px) {
+              font-size: 10px;
+            }
+
             &:focus {
               outline: none;
             }
@@ -364,18 +386,23 @@
           .address-box {
             @include custom-flex(initial, space-between, center);
             width: 100%;
-            height: 170px;
+            min-height: 170px;
             border: 1px solid $main-color;
             padding: 17px 50px 29px 30px;
+            margin-bottom: 10px;
             .address-box-information {
               h2 {
                 position: relative;
                 margin-bottom: 50px;
                 font-family: 'Cairo', sans-serif;
+
+                @media (width <= 400px) {
+                  font-size: 20px;
+                }
                 &:before {
                   content: '';
                   position: absolute;
-                  top: 130%;
+                  top: 110%;
                   left: 0;
                   width: 40%;
                   height: 1px;
@@ -386,6 +413,10 @@
                 p {
                   font-weight: 400;
                   font-size: 17px;
+
+                  @media (width <= 400px) {
+                    font-size: 13px;
+                  }
                   &:first-of-type {
                     transform: translateY(-10px);
                   }
@@ -405,6 +436,11 @@
               color: #fff;
               font-size: 24px;
               transition: 150ms ease-in;
+
+              @media (width <= 400px) {
+                padding: 10px;
+                font-size: 16px;
+              }
               &:focus {
                 outline: none;
               }
@@ -440,8 +476,18 @@
             padding: 10px 0 20px;
             gap: 10px;
 
+            @media (width <= 600px) {
+              gap: 30px;
+            }
+
             > div {
               @include custom-flex(initial, space-between, center);
+
+              @media (width <= 600px) {
+                @include custom-flex(column);
+                gap: 10px;
+              }
+
               input {
                 width: 50%;
                 font-size: 17px;
@@ -449,6 +495,10 @@
                 border: 1px solid #999;
                 padding: 7px 0 7px 5px;
                 font-family: 'Times New Roman', Times, serif;
+
+                @media (width <= 600px) {
+                  width: 100%;
+                }
 
                 &::placeholder {
                   color: #999;
