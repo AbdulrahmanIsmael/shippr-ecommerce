@@ -1,5 +1,4 @@
 node_modules
-/dist
 package-lock.json
 planning.md
-pnpm-lock.yaml
+*.yaml
