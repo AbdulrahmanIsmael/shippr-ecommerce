@@ -15,7 +15,7 @@ My e-commerce website is a dynamic platform for buying and selling a wide range 
 
 ## 🚀 About Me
 
-I'm a front End developer, I have the ability to build interactive, responsive and Organized Websites.
+Junior Front End Developer with a history of creating engaging, user-friendly websites with proven success. Developed modern websites with advanced features, showcasing technical excellence. Motivated to stay up-to-date with industry trends and best practices. Aspiring to be a Full-stack developer with a strong determination and passion for coding.
 
 ## 🛠 Skills
 
