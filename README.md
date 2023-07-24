@@ -15,12 +15,12 @@ My e-commerce website is a dynamic platform for buying and selling a wide range 
 
 ## 🚀 About Me
 
-Junior Front End Developer with a history of creating engaging, user-friendly websites with proven success. Developed modern websites with advanced features, showcasing technical excellence. Motivated to stay up-to-date with industry trends and best practices. Aspiring to be a Full-stack developer with a strong determination and passion for coding.
+Junior Front-end developer with a history of creating engaging, user-friendly websites with proven success. Developed modern websites with advanced features, showcasing technical excellence. Motivated to stay up-to-date with industry trends and best practices. Aspiring to be a Full-stack developer with a strong determination and passion for coding.
 
 ## 🛠 Skills
 
-- HTML - HTML5
-- CSS - CSS3
+- HTML/HTML5
+- CSS/CSS3
 - JavaScript
 - Object Oriented Programming (OOP)
 - Sass\SCSS
