@@ -33,8 +33,12 @@
   }
 
   #cart-table {
-    width: 100vw;
+    width: 60vw;
     margin-top: 20px;
+
+    @media (width<=1100px) {
+      width: 80vw;
+    }
     .cart-list {
       border-collapse: collapse;
       width: 100%;
@@ -48,10 +52,15 @@
           padding: 5px 50px;
           color: #555;
 
-          @media (width <= 850px) {
-            font-size: 13px;
+          @media (width <= 950px) {
+            font-size: 15px;
             padding: 0;
           }
+
+          // @media (width <= 850px) {
+          //   font-size: 13px;
+          //   padding: 0;
+          // }
         }
 
         td {

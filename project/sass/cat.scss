@@ -1,0 +1,108 @@
+@import './include/animation';
+@import './include/vars';
+@import './include/mixins';
+@import './include/global';
+@import './include/header';
+@import './include/footer';
+@import './include/profileMenu';
+
+#categories {
+  display: flex;
+
+  @media (width <= 600px) {
+    flex-direction: column;
+  }
+
+  .categories-filter {
+    background-color: #eee;
+    box-shadow: 0 -1px 5px #666;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 3em;
+
+    @media (width <= 600px) {
+      height: initial;
+      position: static;
+    }
+
+    form {
+      @include custom-flex(column, initial);
+      gap: 1.3em;
+
+      @media (width <= 600px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        align-items: center;
+      }
+
+      > div {
+        @include custom-flex(initial, initial, center);
+        gap: 0.6em;
+        input {
+          accent-color: #000;
+        }
+
+        span {
+          font-size: 1.2rem;
+          font-family: 'Roboto Condensed', cursive;
+        }
+      }
+      button {
+        transition: 0.25s ease-in;
+        cursor: pointer;
+        font-family: 'Roboto Condensed', cursive;
+        margin-top: 4em;
+        padding: 0.3em;
+        font-size: 1.2rem;
+        background-color: #000;
+        color: #eee;
+        border: 1px solid #000;
+
+        &:hover {
+          background-color: transparent;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .categories-results {
+    flex: 1;
+    padding: 3em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1em;
+    .categories-product {
+      @include custom-flex(column);
+      .product-image {
+        overflow: hidden;
+        img {
+          cursor: pointer;
+          transition: scale 0.25s ease;
+          max-width: 100%;
+          height: 100%;
+          &:hover {
+            scale: 1.2;
+          }
+        }
+      }
+
+      .product-info {
+        background-color: #eee;
+        @include custom-flex(column, initial, start);
+        gap: 0.3em;
+        padding: 0.4em 0.4em 0.5em;
+        .product-info-name {
+          font-family: 'Roboto Condensed', cursive;
+          font-size: 1.5rem;
+        }
+
+        .product-info-cat {
+          font-family: 'Roboto Condensed', cursive;
+          color: #555;
+        }
+      }
+    }
+  }
+}
