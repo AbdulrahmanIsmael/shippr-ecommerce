@@ -27,6 +27,13 @@ function headerFooter() {
 const scNavBtns = document.querySelectorAll('.sc-nav-btn');
 const productsContainer = document.getElementById('products-container');
 
+//TODO: Store all the products data in storage
+allProductsInStorage();
+async function allProductsInStorage() {
+  const allProducts = await fetchProducts();
+  localStorage.setItem('allProducts', JSON.stringify(allProducts.products));
+}
+
 //TODO: setting up the showcases switching system
 changingShowcase();
 
@@ -398,10 +405,11 @@ function expandReview() {
 productPage();
 
 function findProductFromStorage(title) {
-  const productsStorage = JSON.parse(localStorage.getItem('products'));
+  const productsStorage = JSON.parse(localStorage.getItem('allProducts'));
   productsStorage.forEach(product => {
     if (product.title === title) {
       localStorage.setItem('product', JSON.stringify(product));
+      location.href = './product.html';
     }
   });
 }
@@ -417,7 +425,6 @@ function productPage() {
         const productTitle =
           product.nextElementSibling.firstElementChild.textContent;
         findProductFromStorage(productTitle);
-        location.href = './product.html';
       }
     }
   });
