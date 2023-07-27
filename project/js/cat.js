@@ -1,3 +1,5 @@
+'use strict';
+
 import { copyrightyear } from './footer.js';
 import {
   fetchProducts,
@@ -5,19 +7,13 @@ import {
   fetchCategoryProducts,
 } from './products.js';
 import {
-  logOutProfile,
-  openProfileMenu,
   userHomePage,
   profileOfUser,
-  removeActive,
   activeNavLinks,
   expandMenu,
-  logOut,
-  toLogIn,
   logInOut,
 } from './header.js';
 
-headerFooter();
 function headerFooter() {
   userHomePage();
   profileOfUser();
@@ -26,6 +22,7 @@ function headerFooter() {
   expandMenu();
   logInOut();
 }
+headerFooter();
 
 //TODO: fetch categories list
 async function categoriesListFetch() {
@@ -145,8 +142,6 @@ async function fetchFilteredProducts() {
 fetchFilteredProducts();
 
 //TODO: Product page work
-moveToProductPage();
-
 function findProductFromStorage(title) {
   const productsStorage = JSON.parse(localStorage.getItem('allProducts'));
   productsStorage.forEach(product => {
@@ -171,3 +166,4 @@ function moveToProductPage() {
     }
   });
 }
+moveToProductPage();

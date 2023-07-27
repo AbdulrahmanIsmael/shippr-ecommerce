@@ -1,18 +1,14 @@
+'use strict';
+
 import { copyrightyear } from './footer.js';
 import {
-  logOutProfile,
-  openProfileMenu,
   userHomePage,
   profileOfUser,
-  removeActive,
   activeNavLinks,
   expandMenu,
-  logOut,
-  toLogIn,
   logInOut,
 } from './header.js';
 
-headerFooter();
 function headerFooter() {
   userHomePage();
   profileOfUser();
@@ -21,10 +17,9 @@ function headerFooter() {
   expandMenu();
   logInOut();
 }
+headerFooter();
 
 // TODO: Check the storage for the cartProducts to display them
-displayCartProducts();
-
 function showRemoveMsg() {
   const removeMsg = document.querySelector('.remove-msg');
 
@@ -68,11 +63,11 @@ function displayCartProducts() {
       const cartProduct = `
           <tr>
             <td class="product-title"><img src="${product.image}" alt="">${product.name}</td>
-            <td>${product.price}$</td>
+            <td>$${product.price}</td>
             <td>
               <input type="number" name="quantity" id="qty" value="${product.qty}" disabled>
             </td>
-            <td>${product.total}$</td>
+            <td>$${product.total}</td>
             <td>
               <button class="remove"><i class="fa-solid fa-trash"></i></button>
             </td>
@@ -85,3 +80,4 @@ function displayCartProducts() {
     deleteProductFromCart();
   }
 }
+displayCartProducts();

@@ -1,18 +1,14 @@
+'use strict';
+
 import { copyrightyear } from './footer.js';
 import {
-  logOutProfile,
-  openProfileMenu,
   userHomePage,
   profileOfUser,
-  removeActive,
   activeNavLinks,
   expandMenu,
-  logOut,
-  toLogIn,
   logInOut,
 } from './header.js';
 
-headerFooter();
 function headerFooter() {
   userHomePage();
   profileOfUser();
@@ -21,6 +17,7 @@ function headerFooter() {
   expandMenu();
   logInOut();
 }
+headerFooter();
 
 //TODO: feed the page with the product information
 function dynamicNavImages() {
@@ -121,9 +118,8 @@ function feedingThePage() {
   }
 }
 feedingThePage();
-//TODO: Function to navigate through the product images
-changeImgs();
 
+//TODO: Function to navigate through the product images
 function TargetClass(items, target) {
   items.forEach(item => {
     item.classList.remove('targeted');
@@ -145,6 +141,7 @@ function changeImgs() {
     }
   });
 }
+changeImgs();
 
 //TODO: Add To Favorites
 function addToFav(img, title, price) {
@@ -195,7 +192,6 @@ function addToCart() {
   const addBtn = document.querySelector('.add-cart');
 
   addBtn.addEventListener('click', e => {
-    // const element = e.target;
     const name = document.querySelector('.title').textContent,
       image = document.getElementById('product-image').src,
       price = parseInt(

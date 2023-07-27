@@ -211,3 +211,20 @@
     transform: translateX(0);
   }
 }
+
+.cart-msg {
+  transition: 0.3s ease-in;
+  background-color: green;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 12%;
+  right: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 18px;
+  transform: translateX(100%);
+  &.cart-msg-show {
+    transform: translateX(0);
+  }
+}

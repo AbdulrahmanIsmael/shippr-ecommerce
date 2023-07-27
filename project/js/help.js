@@ -1,18 +1,14 @@
+'use strict';
+
 import { copyrightyear } from './footer.js';
 import {
-  logOutProfile,
-  openProfileMenu,
   userHomePage,
   profileOfUser,
-  removeActive,
   activeNavLinks,
   expandMenu,
-  logOut,
-  toLogIn,
   logInOut,
 } from './header.js';
 
-headerFooter();
 function headerFooter() {
   userHomePage();
   profileOfUser();
@@ -21,10 +17,9 @@ function headerFooter() {
   expandMenu();
   logInOut();
 }
+headerFooter();
 
 //TODO: expand instructions
-expandInstruction();
-
 function expandInstruction() {
   const instructions = document.querySelectorAll('.instruction');
 
@@ -48,3 +43,4 @@ function expandInstruction() {
     });
   });
 }
+expandInstruction();

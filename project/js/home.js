@@ -1,19 +1,15 @@
+'use strict';
+
 import { fetchProducts } from './products.js';
 import { copyrightyear } from './footer.js';
 import {
-  logOutProfile,
-  openProfileMenu,
   userHomePage,
   profileOfUser,
-  removeActive,
   activeNavLinks,
   expandMenu,
-  logOut,
-  toLogIn,
   logInOut,
 } from './header.js';
 
-headerFooter();
 function headerFooter() {
   userHomePage();
   profileOfUser();
@@ -22,21 +18,20 @@ function headerFooter() {
   expandMenu();
   logInOut();
 }
+headerFooter();
 
 // Defining DOM Nodes
 const scNavBtns = document.querySelectorAll('.sc-nav-btn');
 const productsContainer = document.getElementById('products-container');
 
 //TODO: Store all the products data in storage
-allProductsInStorage();
 async function allProductsInStorage() {
   const allProducts = await fetchProducts();
   localStorage.setItem('allProducts', JSON.stringify(allProducts.products));
 }
+allProductsInStorage();
 
 //TODO: setting up the showcases switching system
-changingShowcase();
-
 function changingShowcase() {
   const localStorageUsername = localStorage.getItem('username');
   const scUserH2 = document.querySelector('#sc1 .sc-content .text h2');
@@ -48,10 +43,9 @@ function changingShowcase() {
     scUserP.innerHTML = 'Start Buying Now!';
   }
 }
+changingShowcase();
 
 //TODO: function to Add Event to the nav buttons & navigate through the showcases
-navShowcases();
-
 function showcaseRelated() {
   const scs = document.querySelectorAll('.sc');
 
@@ -85,9 +79,9 @@ function navShowcases() {
     });
   });
 }
+navShowcases();
 
 //TODO: function to make the showcases automatically switch
-scsAutowitch();
 const switchInterval = setInterval(() => {
   scsAutowitch();
 }, 15000);
@@ -117,6 +111,7 @@ function scsAutowitch() {
     showcaseRelated();
   }, 15000);
 }
+scsAutowitch();
 
 //TODO: Setting up rating system for products
 export function starOne(star) {
@@ -165,8 +160,6 @@ export function starFive(star) {
 }
 
 //TODO: Fetch new arrival products (if stock > 50 then this is new arrival product)
-newArrivalFetch();
-
 export function newArrivalFetch() {
   const products = fetchProducts();
   productsContainer.innerHTML = '';
@@ -208,6 +201,7 @@ export function newArrivalFetch() {
     });
   });
 }
+newArrivalFetch();
 
 //TODO: Fetch Most Rated products
 function mostRatedFetch() {
@@ -333,8 +327,6 @@ function addToCart() {
 }
 
 //TODO : Set active class to list items (categories) of products section + show corresponding Products
-mostLisSwitch();
-
 function mostLisSwitch() {
   const mostLis = document.querySelectorAll('#most-nav > ul > li');
 
@@ -358,10 +350,9 @@ function mostLisSwitch() {
     });
   });
 }
+mostLisSwitch();
 
 //TODO: make the sliding effect
-slideProducts();
-
 function slideProducts() {
   const slideLeft = document.getElementById('slideLeft');
   const slideRight = document.getElementById('slideRight');
@@ -374,10 +365,9 @@ function slideProducts() {
     productsContainer.scrollLeft += 250;
   });
 }
+slideProducts();
 
 //TODO: expand review information
-expandReview();
-
 function expandReview() {
   const reviewBtns = document.querySelectorAll('.reviewer-personal-info');
 
@@ -400,10 +390,9 @@ function expandReview() {
     });
   });
 }
+expandReview();
 
 //TODO: Open Product Page
-productPage();
-
 function findProductFromStorage(title) {
   const productsStorage = JSON.parse(localStorage.getItem('allProducts'));
   productsStorage.forEach(product => {
@@ -429,10 +418,9 @@ function productPage() {
     }
   });
 }
+productPage();
 
 //TODO: make the buttons move to the login page if the user did not sign in
-userStatus();
-
 function checkUserStatus(btns, hrefLink) {
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -456,3 +444,4 @@ function userStatus() {
   checkUserStatus(cartBtns, './cart.html');
   checkUserStatus(articlesLinks, './home.html');
 }
+userStatus();

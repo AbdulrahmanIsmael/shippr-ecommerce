@@ -1,3 +1,5 @@
+'use strict';
+
 //TODO: Change the home page if the user is logged in
 export function openProfileMenu() {
   const userNameHomePage = document.querySelector(
@@ -117,7 +119,7 @@ export function logOut(logBtn) {
   if ((logBtn.innerHTML = 'Log Out')) {
     logBtn.addEventListener('click', () => {
       localStorage.clear();
-      location.reload();
+      location.href = '../home.html';
     });
   }
 }

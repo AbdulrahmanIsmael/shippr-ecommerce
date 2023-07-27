@@ -1,5 +1,7 @@
+'use strict';
+
 import { copyrightyear } from './footer.js';
-import { expandMenu, logOut, toLogIn, logInOut } from './header.js';
+import { expandMenu, logInOut } from './header.js';
 copyrightyear();
 expandMenu();
 logInOut();
@@ -8,7 +10,6 @@ logInOut();
 const password = document.getElementById('password');
 
 //TODO: password input visibility system
-passwordVisible();
 function passwordVisible() {
   const showPassword = document.getElementById('show');
 
@@ -20,16 +21,9 @@ function passwordVisible() {
     }
   });
 }
+passwordVisible();
 
 //TODO: Check if all the inputs are filled
-inputsCheck();
-
-function openProfile() {
-  if (logInSystem()) {
-    location.href = './home.html';
-  }
-}
-
 function checkInputsStatus(inputs) {
   let filled = true;
   inputs.forEach(input => {
@@ -59,10 +53,9 @@ function inputsCheck() {
     }
   });
 }
+inputsCheck();
 
 //TODO: Link to register page
-registerPageMove();
-
 function registerPageMove() {
   const registerPage = document.querySelector('.register');
 
@@ -70,10 +63,9 @@ function registerPageMove() {
     location.href = './register.html';
   });
 }
+registerPageMove();
 
 //TODO: Login System
-logInSystem();
-
 function usernameWrongMsg() {
   const username = document.getElementById('username');
 
@@ -115,3 +107,4 @@ function logInSystem() {
     }
   });
 }
+logInSystem();

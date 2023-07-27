@@ -1,18 +1,14 @@
+'use strict';
+
 import { copyrightyear } from './footer.js';
 import {
-  logOutProfile,
-  openProfileMenu,
   userHomePage,
   profileOfUser,
-  removeActive,
   activeNavLinks,
   expandMenu,
-  logOut,
-  toLogIn,
   logInOut,
 } from './header.js';
 
-headerFooter();
 function headerFooter() {
   userHomePage();
   profileOfUser();
@@ -21,10 +17,9 @@ function headerFooter() {
   expandMenu();
   logInOut();
 }
+headerFooter();
 
 //TODO: set click event on the tabs buttons
-tabBtn();
-
 function addHideContent(target) {
   const tabsContent = document.querySelectorAll('.tab-content > div');
   tabsContent.forEach(tab => {
@@ -63,19 +58,9 @@ function tabBtn() {
     });
   });
 }
+tabBtn();
 
 //TODO: Inserting Address System
-addAddressForm();
-if (localStorage.getItem('name')) {
-  confirmAddressBox();
-}
-changePassword();
-
-if (document.querySelector('.address-delete')) {
-  const addressDelete = document.querySelector('.address-delete');
-  deleteAddress(addressDelete);
-}
-
 function closeAddressForm(target) {
   const overlay = document.querySelector('.overlay');
   target.classList.remove('show');
@@ -209,10 +194,19 @@ function changePassword() {
   });
 }
 
+addAddressForm();
+if (localStorage.getItem('name')) {
+  confirmAddressBox();
+}
+changePassword();
+
+if (document.querySelector('.address-delete')) {
+  const addressDelete = document.querySelector('.address-delete');
+  deleteAddress(addressDelete);
+}
+
 //TODO: Validation of the updated username & email
 //* username *//
-validateUsername();
-
 function usernameMsgError() {
   const newUsername = document.getElementById('new-username');
 
@@ -250,10 +244,9 @@ function validateUsername() {
     }
   });
 }
+validateUsername();
 
 //* Email *//
-emailCheck();
-
 function newEmailMsgError() {
   const newEmail = document.getElementById('new-email');
 
@@ -281,10 +274,9 @@ function emailCheck() {
     }
   });
 }
+emailCheck();
 
 //TODO: Change the Password
-changePasswordProcess();
-
 function passwordMsgError(password, msg, oldMsg) {
   password.value = '';
   password.classList.add('error-input');
@@ -376,3 +368,4 @@ function changePasswordProcess() {
     );
   });
 }
+changePasswordProcess();

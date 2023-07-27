@@ -1,18 +1,14 @@
+'use strict';
+
 import { copyrightyear } from './footer.js';
 import {
-  logOutProfile,
-  openProfileMenu,
   userHomePage,
   profileOfUser,
-  removeActive,
   activeNavLinks,
   expandMenu,
-  logOut,
-  toLogIn,
   logInOut,
 } from './header.js';
 
-headerFooter();
 function headerFooter() {
   userHomePage();
   profileOfUser();
@@ -21,32 +17,7 @@ function headerFooter() {
   expandMenu();
   logInOut();
 }
-
-showFav();
-function showFav() {
-  const favList = document.querySelector('.fav-list');
-  const favs = JSON.parse(localStorage.getItem('favProducts'));
-
-  favs.forEach(fav => {
-    favList.innerHTML += `
-      <tr>
-        <td class="product-title"><img src="${fav.img}" alt="">${fav.name}</td>
-        <td>${fav.price}</td>
-        <td>
-          <input type="number" name="quantity" id="qty">
-        </td>
-        <td>
-          <button class="add-btn"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>
-        </td>
-        <td>
-          <button class="remove"><i class="fa-solid fa-trash"></i></button>
-        </td>
-      </tr>
-    `;
-
-    removeFavItem();
-  });
-}
+headerFooter();
 
 function removeFavFromStorage(name) {
   const favs = JSON.parse(localStorage.getItem('favProducts'));
@@ -76,5 +47,80 @@ function removeFavItem() {
       e.target.parentElement.parentElement.parentElement.remove();
       showRemoveMsg();
     });
+  });
+}
+
+function showFav() {
+  const favList = document.querySelector('.fav-list');
+  const favs = JSON.parse(localStorage.getItem('favProducts'));
+
+  favs.forEach(fav => {
+    favList.innerHTML += `
+      <tr>
+        <td class="product-title"><img src="${fav.img}" alt="">${fav.name}</td>
+        <td>${fav.price}</td>
+        <td>
+          <input type="number" name="quantity" id="qty">
+        </td>
+        <td>
+          <button class="add-btn"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>
+        </td>
+        <td>
+          <button class="remove"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    `;
+
+    addToCart();
+    removeFavItem();
+  });
+}
+showFav();
+
+//TODO: Add product to the cart
+function showCartMsg() {
+  const cartMsg = document.querySelector('.cart-msg');
+
+  cartMsg.classList.add('cart-msg-show');
+
+  setTimeout(() => {
+    cartMsg.classList.remove('cart-msg-show');
+  }, 2000);
+}
+
+function injectToStorage(product) {
+  const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  cartProducts.push(product);
+  localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+}
+
+function addToCart() {
+  const addBtn = document.querySelector('.add-btn');
+
+  addBtn.addEventListener('click', e => {
+    const target = e.target,
+      name =
+        target.parentElement.previousElementSibling.previousElementSibling
+          .previousElementSibling.textContent,
+      image =
+        target.parentElement.previousElementSibling.previousElementSibling
+          .previousElementSibling.firstElementChild.src,
+      price =
+        target.parentElement.previousElementSibling.previousElementSibling.textContent.slice(
+          1
+        ),
+      qty =
+        target.parentElement.previousElementSibling.firstElementChild.value ||
+        1;
+
+    const productInfo = {
+      name,
+      price,
+      image,
+      qty,
+      total: +price * +qty,
+    };
+    showCartMsg();
+    injectToStorage(productInfo);
   });
 }

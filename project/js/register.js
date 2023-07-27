@@ -1,5 +1,7 @@
+'use strict';
+
 import { copyrightyear } from './footer.js';
-import { expandMenu, logOut, toLogIn, logInOut } from './header.js';
+import { expandMenu, logInOut } from './header.js';
 copyrightyear();
 expandMenu();
 logInOut();
