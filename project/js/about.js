@@ -8,6 +8,7 @@ import {
   expandMenu,
   logInOut,
 } from './header.js';
+import { confirmUserDetails } from './contact.js';
 
 function headerFooter() {
   userHomePage();
@@ -18,3 +19,4 @@ function headerFooter() {
   logInOut();
 }
 headerFooter();
+confirmUserDetails();
