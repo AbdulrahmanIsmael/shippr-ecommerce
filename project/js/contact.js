@@ -16,7 +16,7 @@ export function confirmUserDetails() {
   const email = document.getElementById('email');
   const phoneNum = document.querySelector('#phone > input');
 
-  const phonePattern = /(\+2)?(01[1025])(\d{8})/g;
+  const phonePattern = /^(\+2)?(01[1025])(\d{8})$/g;
 
   submitBtn.addEventListener('click', e => {
     e.preventDefault();
