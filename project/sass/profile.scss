@@ -163,7 +163,7 @@
   border: 1px solid #888;
   width: 500px;
   padding: 20px 15px;
-  position: absolute;
+  position: fixed;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -200%);
@@ -172,6 +172,10 @@
   z-index: 100005;
   gap: 15px;
   transition: 0.3s ease-in;
+
+  @media (width <= 550px) {
+    width: 100vw;
+  }
 
   > div {
     @include custom-flex(initial, space-between, center);
@@ -297,7 +301,7 @@
     }
     .tabs {
       @include custom-flex(column);
-      min-height: 140px;
+      height: 140px;
       border: 1px solid #888;
       div {
         min-height: calc(100% / 3);

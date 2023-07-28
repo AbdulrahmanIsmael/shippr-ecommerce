@@ -1,14 +1,13 @@
 .profile-menu {
-  font-family: 'Cairo', sans-serif;
   position: relative;
   position: absolute;
   top: 88px;
-  left: 65%;
+  left: 72%;
   z-index: 100000;
   background-color: #fff;
   color: #000;
   font-size: 20px;
-  width: 150px;
+  width: 250px;
   padding: 10px 0;
   border-top-right-radius: 10px;
   transition: 400ms ease-in;
@@ -17,23 +16,26 @@
     flex-direction: column;
     gap: 10px;
     li {
+      font-family: 'Cairo', sans-serif;
       cursor: pointer;
       width: 100%;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      transition: 300ms ease;
+      transition: 100ms ease;
       i {
-        font-size: 22px;
+        font-size: 20px;
+        transition: 200ms ease;
       }
       &:hover {
         color: $main-color;
+        translate: 2%;
       }
     }
   }
   > i {
     position: absolute;
-    right: 1px;
+    right: 80%;
     top: -26px;
     color: #fff;
     font-size: 55px;

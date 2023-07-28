@@ -20,7 +20,7 @@ export function logOutProfile() {
 
   logOutBtn.addEventListener('click', () => {
     localStorage.clear();
-    location.reload();
+    location.href = '../logIn.html';
   });
   profileLink.addEventListener('click', () => {
     location.href = './profile.html';
@@ -119,7 +119,7 @@ export function logOut(logBtn) {
   if ((logBtn.innerHTML = 'Log Out')) {
     logBtn.addEventListener('click', () => {
       localStorage.clear();
-      location.href = '../home.html';
+      location.reload();
     });
   }
 }
