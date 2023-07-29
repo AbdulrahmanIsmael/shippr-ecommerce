@@ -43,9 +43,8 @@
             transform: translateY(-40%);
             opacity: 0;
             animation: showcaseContent 500ms ease-in 1 alternate forwards;
-            //* animation here
             h2 {
-              font-family: 'Roboto Condensed', sans-serif;
+              font-family: 'Times New Roman', Times, serif;
               font-size: 50px;
               color: $main-color;
               width: 500px;
@@ -56,7 +55,7 @@
             }
 
             p {
-              font-family: 'Sevillana', cursive;
+              font-family: 'Times New Roman', Times, serif;
               font-size: 35px;
 
               @include max-media(768px) {
@@ -76,6 +75,7 @@
             color: #fff;
             border: 0;
             font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
             border-radius: 5px;
             cursor: pointer;
             transition: all 100ms ease-in;
@@ -116,6 +116,7 @@
         margin-bottom: 10px;
         color: #fff;
         font-size: 25px;
+        font-family: 'Times New Roman', Times, serif;
         text-align: right;
         min-width: 50px;
         background-color: transparent;
@@ -281,12 +282,14 @@
             flex-direction: column;
             gap: 10px;
             h2 {
+              font-family: 'Times New Roman', Times, serif;
               margin-top: 10px;
               font-size: 17px;
               font-weight: 600;
               letter-spacing: 0.5px;
             }
             p {
+              font-family: 'Times New Roman', Times, serif;
               font-size: 17px;
               color: #333;
             }
@@ -306,6 +309,7 @@
               background-color: transparent;
               padding: 7px 10px;
               font-size: 15px;
+              font-family: 'Times New Roman', Times, serif;
               border: 1px solid #555;
               i {
                 margin-left: 8px;
@@ -349,13 +353,13 @@
       padding: 60px 0;
       gap: 40px;
       h2 {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         font-size: 45px;
         color: #fff;
         letter-spacing: 2px;
       }
       p {
-        font-family: 'Sevillana', cursive;
+        font-family: 'Times New Roman', Times, serif;
         font-size: 35px;
         font-weight: 400;
         color: #fff;
@@ -367,6 +371,7 @@
         color: #000;
         border: 0;
         font-size: 18px;
+        font-family: 'Times New Roman', Times, serif;
         border-radius: 5px;
         cursor: pointer;
         transition: all 100ms ease-in;
@@ -385,14 +390,14 @@
     padding: 40px 95px;
     gap: 20px;
     h2 {
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       font-weight: 400;
       font-size: 40px;
       color: #111;
       letter-spacing: 2px;
     }
     p {
-      font-family: 'Roboto Condensed', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 23px;
       font-weight: 400;
       color: #555;
@@ -417,7 +422,7 @@
           }
           h2 {
             width: fit-content;
-            font-family: 'Roboto Condensed', cursive;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 26px;
             font-size: 600;
           }
@@ -438,8 +443,6 @@
           @include custom-flex(column);
           border-bottom-right-radius: 10px;
           border-bottom-left-radius: 10px;
-          // border: 1px solid #888;
-          // border-top: 0;
           padding: 0 20px;
           gap: 15px;
           transition: 250ms linear;
@@ -480,7 +483,7 @@
       align-items: center;
       gap: 40px;
       h2 {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         font-size: 45px;
         font-weight: 500;
         color: #fff;
@@ -497,6 +500,7 @@
         background-color: #fff;
         color: #000;
         border: 0;
+        font-family: 'Times New Roman', Times, serif;
         font-size: 18px;
         border-radius: 5px;
         cursor: pointer;
@@ -520,14 +524,14 @@
     padding: 40px 95px;
     gap: 20px;
     h2 {
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       font-weight: 400;
       font-size: 40px;
       color: #111;
       letter-spacing: 2px;
     }
     p {
-      font-family: 'Roboto Condensed', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 23px;
       font-weight: 400;
       color: #555;
@@ -563,11 +567,13 @@
         }
 
         h3 {
+          font-family: 'Times New Roman', Times, serif;
           font-size: 20px;
           font-weight: 600;
         }
 
         p {
+          font-family: 'Times New Roman', Times, serif;
           font-size: 18px;
           max-width: 70%;
         }
@@ -577,6 +583,7 @@
           width: fit-content;
           text-align: center;
           font-size: 16px;
+          font-family: 'Times New Roman', Times, serif;
           text-decoration: underline;
 
           i {
@@ -601,7 +608,7 @@
     padding: 30px 95px;
     gap: 10px;
     h2 {
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       font-weight: 400;
       font-size: 50px;
       color: #000;
@@ -609,7 +616,7 @@
     }
 
     p {
-      font-family: 'Roboto Condensed', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 23px;
       font-weight: 400;
       color: #555;
@@ -625,6 +632,7 @@
         height: 50px;
         padding-left: 10px;
         font-size: 18px;
+        font-family: 'Times New Roman', Times, serif;
         width: 60vw;
         &:focus {
           outline: 0;
@@ -635,7 +643,7 @@
       input[type='submit'] {
         cursor: pointer;
         transition: 400ms ease;
-        font-family: 'Cairo', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         padding: 8px 40px;
         font-size: 18px;
         background-color: #000;
@@ -667,6 +675,7 @@
 }
 
 .cart-msg {
+  font-family: 'Times New Roman', Times, serif;
   transition: 0.3s ease-in;
   background-color: green;
   color: #fff;

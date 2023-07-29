@@ -51,7 +51,7 @@
   > div {
     @include custom-flex(initial, space-between, center);
     h2 {
-      font-family: 'Roboto Condensed', Times, sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 20px;
     }
 
@@ -79,7 +79,7 @@
       @include custom-flex(initial, space-between);
       gap: 22px;
       select {
-        font-family: 'Roboto Condensed', Times, sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         width: 50%;
         font-size: 16px;
         &:focus {
@@ -87,7 +87,7 @@
         }
       }
       input {
-        font-family: 'Roboto Condensed', Times, sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         font-size: 16px;
         padding: 7px 0;
         padding-left: 5px;
@@ -121,6 +121,7 @@
         width: fit-content;
         padding: 7px 5px;
         font-size: 16px;
+        font-family: 'Times New Roman', Times, serif;
         background-color: #000;
         color: #fff;
         border: 0;
@@ -143,6 +144,7 @@
         color: #fff;
         padding: 5px 7px;
         font-size: 14px;
+        font-family: 'Times New Roman', Times, serif;
         font-weight: 500;
 
         &:empty {
@@ -180,7 +182,7 @@
   > div {
     @include custom-flex(initial, space-between, center);
     h2 {
-      font-family: 'Roboto Condensed', Times, sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 20px;
     }
 
@@ -209,7 +211,7 @@
       gap: 22px;
       input {
         width: 50%;
-        font-family: 'Roboto Condensed', Times, sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         font-size: 16px;
         padding: 7px 0;
         padding-left: 5px;
@@ -224,7 +226,9 @@
         }
 
         &.error-input {
+          font-family: 'Times New Roman', Times, serif;
           &::placeholder {
+            font-family: 'Times New Roman', Times, serif;
             font-size: 13px;
             color: #ff0000;
             font-weight: 700;
@@ -238,6 +242,7 @@
       width: fit-content;
       padding: 7px 5px;
       font-size: 16px;
+      font-family: 'Times New Roman', Times, serif;
       background-color: #000;
       color: #fff;
       border: 0;
@@ -271,14 +276,14 @@
     padding: 40px 60px;
     gap: 20px;
     h2 {
-      font-family: 'Courgette', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 70px;
       letter-spacing: 1.5px;
       color: #333;
     }
 
     div {
-      font-family: 'Courgette', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 20px;
       letter-spacing: 2px;
       color: #333;
@@ -307,7 +312,7 @@
         min-height: calc(100% / 3);
         transition: 300ms ease;
         cursor: pointer;
-        font-family: 'Roboto Condensed', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         padding: 10px 5px;
         padding-right: 90px;
         font-size: 19px;
@@ -360,7 +365,7 @@
           }
 
           > h2 {
-            font-family: 'Roboto Condensed', sans-serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 14;
             color: rgb(42, 64, 64);
           }
@@ -369,7 +374,7 @@
             background-color: #000;
             color: #fff;
             padding: 10px 20px;
-            font-family: 'Roboto Condensed', sans-serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 16px;
             border-radius: 5px;
             transition: 200ms ease-in;
@@ -398,8 +403,7 @@
               h2 {
                 position: relative;
                 margin-bottom: 50px;
-                font-family: 'Cairo', sans-serif;
-
+                font-family: 'Times New Roman', Times, serif;
                 @media (width <= 400px) {
                   font-size: 20px;
                 }
@@ -415,6 +419,7 @@
               }
               div {
                 p {
+                  font-family: 'Times New Roman', Times, serif;
                   font-weight: 400;
                   font-size: 17px;
 
@@ -459,7 +464,7 @@
           @include custom-flex(column);
           gap: 20px;
           h2 {
-            font-family: 'Roboto Condensed', serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 23px;
             font-weight: 500;
           }
@@ -499,12 +504,12 @@
                 border: 1px solid #999;
                 padding: 7px 0 7px 5px;
                 font-family: 'Times New Roman', Times, serif;
-
                 @media (width <= 600px) {
                   width: 100%;
                 }
 
                 &::placeholder {
+                  font-family: 'Times New Roman', Times, serif;
                   color: #999;
                   font-size: 16px;
                 }
@@ -514,7 +519,9 @@
                 }
 
                 &.error-input {
+                  font-family: 'Times New Roman', Times, serif;
                   &::placeholder {
+                    font-family: 'Times New Roman', Times, serif;
                     font-size: 14px;
                     color: #ff0000;
                     font-weight: 700;
@@ -527,6 +534,7 @@
                 width: fit-content;
                 padding: 6px 8px;
                 font-size: 14px;
+                font-family: 'Times New Roman', Times, serif;
                 font-weight: 500;
                 background-color: #222;
                 color: #fff;
@@ -549,6 +557,7 @@
               margin-top: 50px;
               padding: 8px 10px;
               font-size: 16px;
+              font-family: 'Times New Roman', Times, serif;
               font-weight: 500;
               background-color: #222;
               color: #fff;

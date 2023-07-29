@@ -18,14 +18,14 @@
     padding: 40px 60px;
     gap: 20px;
     h2 {
-      font-family: 'Courgette', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 70px;
       letter-spacing: 1.5px;
       color: #333;
     }
 
     div {
-      font-family: 'Courgette', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 20px;
       letter-spacing: 2px;
       color: #333;
@@ -46,7 +46,7 @@
         border-bottom: 1px solid #999;
         th {
           text-align: center;
-          font-family: 'Cairo', sans-serif;
+          font-family: 'Times New Roman', Times, serif;
           font-size: 19px;
           font-weight: 600;
           padding: 5px 50px;
@@ -61,8 +61,7 @@
         td {
           text-align: center;
           padding: 30px 60px 10px;
-          font-family: 'Cairo', sans-serif;
-
+          font-family: 'Times New Roman', Times, serif;
           @media (width <= 900px) {
             padding: 0 20px;
           }
@@ -73,6 +72,7 @@
             width: 50px;
             padding: 3px 0;
             border: 1px solid #888;
+            font-family: 'Times New Roman', Times, serif;
 
             &::-webkit-inner-spin-button,
             &::-webkit-outer-spin-button {
@@ -115,6 +115,7 @@
             border: 0;
             padding: 8px 10px;
             font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
             transition: 0.3s ease;
 
             &:focus {
@@ -247,7 +248,7 @@
       h3 {
         padding-top: 10px;
         padding-left: 20px;
-        font-family: 'Cairo', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         font-size: 22px;
         color: #555;
       }
@@ -259,11 +260,11 @@
       }
 
       p {
+        font-family: 'Times New Roman', Times, serif;
         font-size: 16px;
         font-weight: 600;
         padding-left: 20px;
         color: $main-color;
-        font-family: 'Cairo', sans-serif;
       }
 
       .input-code {
@@ -289,8 +290,7 @@
           color: #fff;
           font-size: 16px;
           border: 0;
-          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
-            sans-serif;
+          font-family: 'Times New Roman', Times, serif;
           width: 35%;
           padding: 9px 0;
 
@@ -319,9 +319,9 @@
       }
 
       h3 {
+        font-family: 'Times New Roman', Times, serif;
         padding-top: 10px;
         padding-left: 20px;
-        font-family: 'Cairo', sans-serif;
         font-size: 22px;
         color: #555;
       }
@@ -363,7 +363,7 @@
         font-size: 18px;
         text-align: center;
         border: 0;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         padding: 9px 0;
         margin: 10px 20px;
 
@@ -376,6 +376,7 @@
 }
 
 .remove-msg {
+  font-family: 'Times New Roman', Times, serif;
   transition: 0.3s ease-in;
   background-color: red;
   color: #fff;

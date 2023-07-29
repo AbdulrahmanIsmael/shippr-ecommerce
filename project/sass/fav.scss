@@ -18,14 +18,14 @@
     padding: 40px 60px;
     gap: 20px;
     h2 {
-      font-family: 'Courgette', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 70px;
       letter-spacing: 1.5px;
       color: #333;
     }
 
     div {
-      font-family: 'Courgette', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 20px;
       letter-spacing: 2px;
       color: #333;
@@ -43,7 +43,7 @@
         border-bottom: 1px solid #999;
         th {
           text-align: center;
-          font-family: 'Cairo', sans-serif;
+          font-family: 'Times New Roman', Times, serif;
           font-size: 19px;
           font-weight: 600;
           padding: 5px 50px;
@@ -63,8 +63,7 @@
         td {
           text-align: center;
           padding: 30px 60px 10px;
-          font-family: 'Cairo', sans-serif;
-
+          font-family: 'Times New Roman', Times, serif;
           &:nth-of-type(2) {
             @media (width<=822px) {
               font-size: 12px;
@@ -85,6 +84,7 @@
             width: 50px;
             padding: 3px 0;
             border: 1px solid #888;
+            font-family: 'Times New Roman', Times, serif;
 
             &::-webkit-inner-spin-button,
             &::-webkit-outer-spin-button {
@@ -124,6 +124,7 @@
 
           .add-btn {
             cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
             border-radius: 12px;
             background-color: #000;
             color: #fff;
@@ -196,6 +197,7 @@
 }
 
 .remove-msg {
+  font-family: 'Times New Roman', Times, serif;
   transition: 0.3s ease-in;
   background-color: red;
   color: #fff;
@@ -213,6 +215,7 @@
 }
 
 .cart-msg {
+  font-family: 'Times New Roman', Times, serif;
   transition: 0.3s ease-in;
   background-color: green;
   color: #fff;

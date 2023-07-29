@@ -24,7 +24,7 @@
     background-size: cover;
     padding: 40px 60px;
     h2 {
-      font-family: 'Courgette', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 70px;
       letter-spacing: 1.5px;
       color: #333;
@@ -38,9 +38,6 @@
   #product-info {
     width: 90%;
     margin: 100px auto;
-    // margin-bottom: 50px;
-    // height: 500px;
-    // height: 100%;
     display: grid;
     grid-template-columns: 45% 1fr;
     grid-template-rows: 500px;
@@ -99,17 +96,17 @@
         .title {
           color: #333;
           font-size: 25px;
-          font-family: 'Cairo', sans-serif;
+          font-family: 'Times New Roman', Times, serif;
         }
 
         .brand {
-          font-family: 'Roboto Condensed', sans-serif;
+          font-family: 'Times New Roman', Times, serif;
           color: #666;
         }
       }
 
       .details {
-        font-family: 'Roboto Condensed', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         padding: 0 10px;
         display: flex;
         flex-direction: column;
@@ -121,6 +118,7 @@
           span {
             color: #111;
             font-size: 40px;
+            font-family: 'Times New Roman', Times, serif;
             &.discount {
               border-radius: 100vmax;
               padding: 8px;
@@ -144,6 +142,7 @@
           span {
             margin-left: 30px;
             font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
             font-weight: 500;
             color: #333;
           }
@@ -157,6 +156,7 @@
           span {
             margin-left: 30px;
             font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
             font-weight: 500;
             color: #333;
           }
@@ -165,6 +165,7 @@
         .desc {
           margin-top: 13px;
           font-size: 18px;
+          font-family: 'Times New Roman', Times, serif;
           color: #444;
         }
       }
@@ -184,6 +185,7 @@
           transition: 0.2s ease;
           font-size: 16px;
           border-radius: 5px;
+          font-family: 'Times New Roman', Times, serif;
           width: fit-content;
           padding: 10px 10px;
           background-color: transparent;
@@ -198,6 +200,7 @@
             color: #fff;
             transition: 0.2s ease;
             font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
             border-radius: 5px;
             width: fit-content;
             padding: 10px 10px;
@@ -239,6 +242,7 @@
             border: 0;
             padding: 10px 20px;
             font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
             &:focus {
               outline: none;
             }
@@ -260,12 +264,13 @@
     color: #fff;
     background-color: #ff0022;
     font-size: 18px;
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     padding: 5px 8px;
   }
 }
 
 .added-msg {
+  font-family: 'Times New Roman', Times, serif;
   transition: 0.3s ease-in;
   background-color: green;
   color: #fff;
@@ -283,6 +288,7 @@
 }
 
 .cart-msg {
+  font-family: 'Times New Roman', Times, serif;
   transition: 0.3s ease-in;
   background-color: green;
   color: #fff;

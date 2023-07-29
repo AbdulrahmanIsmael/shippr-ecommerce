@@ -22,7 +22,7 @@
     a {
       text-decoration: none;
       color: #fff;
-      font-family: 'Merriweather', serif;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 2.3rem;
       letter-spacing: 2px;
     }
@@ -45,7 +45,7 @@
 
       a {
         font-size: 17px;
-        font-family: 'Cairo', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         color: #fff;
         transition: color 150ms linear;
         &.activeNav {
@@ -82,7 +82,7 @@
       }
 
       div {
-        font-family: 'Cairo', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         color: #fff;
         font-size: 14px;
         transition: color 150ms linear;
@@ -132,6 +132,7 @@
       }
 
       a {
+        font-family: 'Times New Roman', Times, serif;
         transition: 0.25s ease;
         color: #fff;
         font-size: 18px;

@@ -19,14 +19,14 @@
     padding: 40px 60px;
     gap: 20px;
     h2 {
-      font-family: 'Courgette', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 70px;
       letter-spacing: 1.5px;
       color: #333;
     }
 
     div {
-      font-family: 'Courgette', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 20px;
       letter-spacing: 2px;
       color: #333;
@@ -50,6 +50,7 @@
       gap: 80px;
       border-radius: inherit;
       h2 {
+        font-family: 'Times New Roman', Times, serif;
         position: relative;
         font-size: 35px;
         &::before {
@@ -72,6 +73,7 @@
       }
 
       p {
+        font-family: 'Times New Roman', Times, serif;
         font-size: 22px;
         line-height: 40px;
       }
@@ -99,7 +101,7 @@
         width: 70px;
       }
       > div {
-        font-family: 'Cairo', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         font-size: 20px;
         font-weight: 500;
       }
@@ -116,7 +118,7 @@
     padding: 30px 95px;
     gap: 10px;
     h2 {
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       font-weight: 400;
       font-size: 50px;
       color: #000;
@@ -124,7 +126,7 @@
     }
 
     p {
-      font-family: 'Roboto Condensed', cursive;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 23px;
       font-weight: 400;
       color: #555;
@@ -139,6 +141,7 @@
         border: 1px dotted #555;
         height: 50px;
         padding-left: 10px;
+        font-family: 'Times New Roman', Times, serif;
         font-size: 18px;
         width: 60vw;
         &:focus {
@@ -150,7 +153,7 @@
       input[type='submit'] {
         cursor: pointer;
         transition: 400ms ease;
-        font-family: 'Cairo', sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         padding: 8px 40px;
         font-size: 18px;
         background-color: #000;
