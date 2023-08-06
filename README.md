@@ -1,21 +1,21 @@
 # shippr_ecommerce-store
 
-My e-commerce website is a dynamic platform for buying and selling a wide range of goods over the internet. It provides users with a seamless and highly secure payment processing system, ensuring that all transactions are handled with the utmost accuracy and safety.
+Shippr e-commerce website is a dynamic platform for buying and selling a wide range of goods over the internet. It provides users with a seamless and highly secure payment processing system, ensuring that all transactions are handled with the utmost accuracy and safety.
 
 ## Features
 
 - Responsive and interactive User Interfaces
 - Enhanced User Experience
-- Secure Authentication system
+- Secure Authentication System
 - Categories page with filtering system
-- Add Products to Favorites List
+- Add Products to the Favorites List
 - Add Products to The Cart
 
 ## Future Work
 
 - Add Search system to the categories page.
 - Add payment page.
-- Send Message to the user email when receiving the product in time.
+- Send a Message to the user's email when receiving the product in time.
 
 ## Screenshots
 
