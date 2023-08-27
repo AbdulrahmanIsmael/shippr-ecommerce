@@ -1,6 +1,6 @@
 # shippr_ecommerce-store
 
-Shippr e-commerce website is a dynamic platform for buying and selling a wide range of goods over the internet. It provides users with a seamless and highly secure payment processing system, ensuring that all transactions are handled with the utmost accuracy and safety.
+Shippr e-commerce website is a dynamic platform for buying and selling a wide range of goods over the internet.
 
 ## Features
 
